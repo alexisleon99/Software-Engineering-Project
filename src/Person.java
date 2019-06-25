@@ -6,6 +6,7 @@ public class Person {
 	
 	public Person() {
 	}
+<<<<<<< HEAD
 
  public String getName(String firstName, String lastName) {
 	 this.firstName = firstName; 
@@ -24,5 +25,4 @@ public class Person {
  }
 
 }
-
 
