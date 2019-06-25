@@ -15,7 +15,7 @@ public class Person {
  }
  
 
- public int getInfo (int birthDay) {
+ public int getBday (int birthDay) {
 	 return birthDay; 
  }
  
