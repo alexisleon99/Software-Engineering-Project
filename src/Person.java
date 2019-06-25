@@ -1,8 +1,9 @@
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Person {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) throws FileNotFoundException {		
 		System.out.println("Enter what you would like to do");
 		System.out.println("1 - Search Flights" + "\n2 - Purchase" + "\n3 - Cancel Reservation");
 		Scanner input = new Scanner(System.in);
@@ -10,7 +11,7 @@ public class Person {
 		int response = input.nextInt();
 		
 		if(response == 1){
-			Reservation order = new Reservation();
+			Flight order = new Flight(null);
 			order.search();
 			
 		}else if(response == 2){
