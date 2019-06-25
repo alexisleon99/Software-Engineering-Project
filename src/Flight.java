@@ -28,7 +28,9 @@ public class Flight {
 		while (flight.hasNextLine()) {
 			System.out.println(flight.nextLine()); 
 		 }
-
+		flight.close();
+		input.close();
+		
 	}
 	
 }

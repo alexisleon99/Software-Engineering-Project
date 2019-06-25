@@ -13,15 +13,19 @@ public class Person {
 		if(response == 1){
 			Flight order = new Flight(null);
 			order.search();
-			
 		}else if(response == 2){
-			
-		}else if(response == 3) {
-			
+			System.out.println("Command not yet added");
+			System.exit(0);
+		}else if(response == 3){
+			System.out.println("Command not yet added");
+			System.exit(0);
 		}else {
-			System.out.println("Command Not Recognised");
+			System.out.println("Command Not Recognized");
+			System.exit(0);
 		}
-			
+		
+		main(args);
+		input.close();
 	}
 	
 }
