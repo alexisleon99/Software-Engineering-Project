@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Flight {
-	
 	String airline;
 
 	public Flight(String airline) {
