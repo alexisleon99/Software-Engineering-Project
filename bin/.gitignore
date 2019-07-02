@@ -1,3 +1,9 @@
-/delta.txt
-/delta2.txt
-/jetblue.txt
+/Airlines.class
+/Flight.class
+/Login.class
+/PaymentProcessor.class
+/Person.class
+/Reservation.class
+/Seat.class
+/SeatChart.class
+/SeatClass.class

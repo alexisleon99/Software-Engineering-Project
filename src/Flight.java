@@ -4,31 +4,35 @@ import java.util.Scanner;
 
 public class Flight {
 	
-	String destination;
-	String fnum;
-	int capacity;
-	double price;
+	String airline;
 
-	public Flight(String destination) {
-		this.destination = destination;
+	public Flight(String airline) {
+		this.airline = airline;
 		
 	}
 	
 	public void search() throws FileNotFoundException {
-		
-		System.out.println("Search for airline");
 		Scanner input = new Scanner(System.in);
 		
-		String airline = input.next();
+
 		
-		System.out.println("Destination");
 		File file = new File("src\\"+airline+".txt"); 
 		Scanner flight = new Scanner(file); 
 		  
 		while (flight.hasNextLine()) {
 			System.out.println(flight.nextLine()); 
-		 }
-		flight.close();
+		}
+		
+		System.out.println("Will you like to purchase a reservation to one of these destinations?");
+		int answer = input.nextInt();
+		
+		if(answer == 1) {
+			Reservation ticket = new Reservation(airline); 
+			ticket.purchase();
+		}else {
+			System.out.println("Thank you for searching through " + airline + " flights");
+		}
+		
 		input.close();
 		
 	}
