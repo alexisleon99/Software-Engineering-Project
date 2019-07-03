@@ -4,8 +4,12 @@ import java.util.Scanner;
 
 public class Reservation {
 	String airline;
-	public Reservation(String airline) {
+	int size;
+	Scanner flight2;
+	public Reservation(String airline, int size, Scanner flight2) {
 		this.airline = airline;
+		this.size = size;
+		this.flight2 = flight2;
 		
 	}
 	
@@ -13,40 +17,19 @@ public class Reservation {
 	//did this for the simplicity, once it worked i was going to change it into a map 
 	//I was also thinking of maybe having the purcahed flights be copied into another txt file
 	public void purchase() throws FileNotFoundException {
-		int fsize = 0;
-		File file = new File("src\\"+airline+".txt"); 
-		Scanner flight = new Scanner(file); 
-		  
-		while (flight.hasNextLine()) {
-			fsize = fsize++;
-		}
+		System.out.println(size);
 		
-		System.out.println(fsize);
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		
 		
-		
-		
-		
 
-
-		
-
-		System.out.println(fsize);
-		
-		Scanner scan = new Scanner(new File("src\\"+airline+".txt"));
-		
-		
-
-		
-		String [] destinations = new String[fsize];
+		String [] destinations = new String[size];
 		
 		Scanner locations = new Scanner(new File("src\\"+airline+".txt"));
-		for(int i = 0; i <fsize; i = i+	1) {
-			destinations[i] = locations.next();
-			System.out.println(destinations[i]);
-			
+		for(int i = 0; i <size; i = i+	1) {
+			destinations[i] = locations.nextLine();
+			System.out.println(destinations[i]);//testing to see if everything is being copied to the array
 		}
 		
 		
