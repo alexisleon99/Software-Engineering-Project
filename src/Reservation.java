@@ -10,7 +10,6 @@ public class Reservation {
 		this.airline = airline;
 		this.size = size;
 		this.flight2 = flight2;
-		
 	}
 	
 	//this method is importing the text file list and trying to copy everything into an array
@@ -22,8 +21,6 @@ public class Reservation {
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		
-		
-
 		String [] destinations = new String[size];
 		
 		Scanner locations = new Scanner(new File("src\\"+airline+".txt"));
@@ -31,6 +28,7 @@ public class Reservation {
 			destinations[i] = locations.nextLine();
 			System.out.println(destinations[i]);//testing to see if everything is being copied to the array
 		}
+		locations.close();
 		
 		
 		
