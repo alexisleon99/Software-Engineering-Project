@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class Person {
@@ -27,11 +28,9 @@ public class Person {
 		return ssn; 
 	}
 	
-	
-	public void menu () throws FileNotFoundException {
+	public void menu () throws IOException {
 		System.out.println("\nhello " + fname + " what would you like to do?");
-		
-		
+			
 		System.out.println("1 - Search Flights" + "\n2 - Purchase" + "\n3 - Cancel Reservation");
 		Scanner input = new Scanner(System.in);
 		
@@ -40,9 +39,8 @@ public class Person {
 		if(response == 1){
 			System.out.println("Search for airline");
 			String airline = input.next();
-			Flight order = new Flight(airline);
+			Flight order = new Flight(airline,fname,ssn);
 			order.search();
-
 		}else if(response == 2){
 			System.out.println("Command not yet added");
 			System.exit(0);
@@ -52,19 +50,7 @@ public class Person {
 		}else {
 			System.out.println("Command Not Recognized");
 			System.exit(0);
-		}
-		
+		}		
 		input.close();
-
-	}
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
+	} 
 }

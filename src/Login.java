@@ -1,9 +1,10 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class Login {
 
-	public static void main(String[] args) throws FileNotFoundException {	
+	public static void main(String[] args) throws IOException {	
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Hello welcome to Atlanta International Airport");
@@ -18,7 +19,5 @@ public class Login {
 		Person user = new Person(fname, lname, ssn);
 		user.menu();
 		input.close();
-		
-	
 	}
 }

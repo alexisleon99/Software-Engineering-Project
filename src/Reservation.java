@@ -1,34 +1,66 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Reservation {
 	String airline;
 	int size;
 	Scanner flight2;
-	public Reservation(String airline, int size, Scanner flight2) {
+	String fname;
+	String ssn;
+	public Reservation(String airline, int size, Scanner flight2,String fname, String ssn) {
 		this.airline = airline;
 		this.size = size;
 		this.flight2 = flight2;
+		this.fname = fname;
+		this.ssn = ssn;
 	}
 	
-	//this method is importing the text file list and trying to copy everything into an array
-	//did this for the simplicity, once it worked i was going to change it into a map 
-	//I was also thinking of maybe having the purcahed flights be copied into another txt file
-	public void purchase() throws FileNotFoundException {
+	public void purchase() throws IOException {
+		Scanner input = new Scanner(System.in);
 		System.out.println(size);
 		
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		
-		String [] destinations = new String[size];
+		String [] destinations;
+		FileReader read = new FileReader("src\\"+airline+".txt");
+		BufferedReader br = new BufferedReader(read);
+		String s;
 		
-		Scanner locations = new Scanner(new File("src\\"+airline+".txt"));
-		for(int i = 0; i <size; i = i+	1) {
-			destinations[i] = locations.nextLine();
-			System.out.println(destinations[i]);//testing to see if everything is being copied to the array
+		System.out.println("Choose which location you will like to visit");
+		String visit = input.nextLine();
+		int count = 0;
+		String filename = "reservations.txt";
+		PrintWriter outputStream = new PrintWriter(filename);
+		while((s=br.readLine()) !=null) {
+			destinations = s.split(" ");
+			for(String destination : destinations) {
+				if(destination.equals(visit)) {
+					count++;
+	
+					outputStream.println("***Reservation List***");
+					outputStream.println("SSN\t" + "Firstname\t" + "Destination");
+					outputStream.println(ssn + "\t" + fname + "\t" + visit);
+					
+					System.out.println("reservation was a success enjoy your flight");	
+				}
+			}
 		}
-		locations.close();
+		if(count ==0) {
+			System.out.println("Sorry Sir/Mam that destination is not being traveled to by that Airline");
+		}
 		
+		
+		System.out.println("Add another Flight?");
+		String a = input.next();
+		String b = "yes";
+		if(a == b) {
+			purchase();
+		}else {
+			outputStream.flush();
+			outputStream.close();
+			input.close();			
+		}
+
 	}
 }
