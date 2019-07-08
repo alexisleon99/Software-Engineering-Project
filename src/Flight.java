@@ -7,11 +7,13 @@ public class Flight {
 	String airline;
 	String fname;
 	String ssn;
+	double budget;
 
-	public Flight(String airline, String fname,String ssn) {
+	public Flight(String airline, String fname,String ssn, double budget) {
 		this.airline = airline;
 		this.fname = fname;
 		this.ssn = ssn;	
+		this.budget = budget;
 	}
 	public void search() throws IOException {
 		int size = 0;
@@ -30,7 +32,7 @@ public class Flight {
 		int answer = input.nextInt();
 		
 		if(answer == 1) {
-			Reservation ticket = new Reservation(airline,size,flight,fname,ssn); 
+			Reservation ticket = new Reservation(airline,size,flight,fname,ssn, budget); 
 			ticket.purchase();
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");

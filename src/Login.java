@@ -15,8 +15,10 @@ public class Login {
 		String lname = input.next();
 		System.out.println("Enter SSN");
 		String ssn = input.next();
+		System.out.println("Please enter your budget for your flight");
+		double budget = input.nextDouble();
 		
-		Person user = new Person(fname, lname, ssn);
+		Person user = new Person(fname, lname, ssn, budget);
 		user.menu();
 		input.close();
 	}

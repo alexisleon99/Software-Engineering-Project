@@ -4,12 +4,14 @@ import java.util.*;
 
 public class Person {
 	String fname,lname,ssn;
-	int birthDay;  
+	int birthDay;
+	double budget;  
 	
-	public Person(String fname, String lname,String ssn) {
+	public Person(String fname, String lname,String ssn, double budget) {
 		this.fname = fname;
 		this.lname = lname;
 		this.ssn = ssn;
+		this.budget = budget;
 	}
 
 	public String getName(String fname, String lname) {
@@ -19,7 +21,6 @@ public class Person {
 		return name;
 	}
  
-
 	public int getBday (int birthDay) {
 		return birthDay; 
 	}
@@ -39,11 +40,13 @@ public class Person {
 		if(response == 1){
 			System.out.println("Search for airline");
 			String airline = input.next();
-			Flight order = new Flight(airline,fname,ssn);
+			Flight order = new Flight(airline,fname,ssn,budget);
 			order.search();
 		}else if(response == 2){
-			System.out.println("Command not yet added");
-			System.exit(0);
+			System.out.println("Direclty purchasing ticket");
+			
+			Reservation directp = new Reservation(fname, response, input, null, null, budget);
+			directp.directp();
 		}else if(response == 3){
 			System.out.println("Command not yet added");
 			System.exit(0);
