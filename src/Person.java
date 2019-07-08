@@ -47,7 +47,7 @@ public class Person {
 	public void menu () throws IOException {
 		System.out.println("\nhello " + fname + " what would you like to do?");
 			
-		System.out.println("1 - Search Flights" + "\n2 - Purchase" + "\n3 - Cancel Reservation");
+		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation");
 		Scanner input = new Scanner(System.in);
 		
 		int response = input.nextInt();
@@ -58,10 +58,8 @@ public class Person {
 			Flight order = new Flight(airline,fname,ssn,budget);
 			order.search();
 		}else if(response == 2){
-			System.out.println("Direclty purchasing ticket");
-			
-			//Reservation purchase = new Reservation(fname, input, null, null, budget);
-			//Reservation.purchase();
+			System.out.println("Command not yet added");
+			System.exit(0);
 		}else if(response == 3){
 			System.out.println("Command not yet added");
 			System.exit(0);

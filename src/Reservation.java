@@ -46,26 +46,6 @@ public class Reservation {
 		}
 	}
 	
-	/*public void directp() throws IOException {
-		System.out.println("hello sir/mam");
-		System.out.println("Please choose your desired airline");
-		String airline = input.next();
-		
-
-		
-		System.out.println("Choose which location you will like to visit");
-		String visit = input.next();
-		System.out.println(visit);
-		
-		int count = 0;
-		String filename = "reservations.txt";
-		PrintWriter outputStream = new PrintWriter(filename);
-
-		if(count ==0) {
-			System.out.println("Sorry Sir/Mam that destination is not being traveled to by that Airline");
-		}
-	}*/
-	
 	public static void cashcheck(Double cost, double budget){
 		System.out.println("Your Budget is " + budget);
 		System.out.println("Flight Cost is " + cost);

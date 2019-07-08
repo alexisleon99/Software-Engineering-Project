@@ -1,3 +1,3 @@
 ***Reservation List***
 SSN	First Name	Destination	Seat	Balance
-322332	Jose	Austin	T84	3000.0
+7327732	Jose	Austin	X34	3000.0
