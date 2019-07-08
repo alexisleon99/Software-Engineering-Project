@@ -1,23 +1,38 @@
 import java.io.*;
 import java.util.*;
 
+
+/**
+ * 
+ * @author delga
+ *
+ */
 public class Reservation {
 	String airline, fname, ssn;
-	int size;
+
 	Scanner flight2;
 	double budget;
 	Scanner input = new Scanner(System.in);
-	public Reservation(String airline, int size, Scanner flight2,String fname, String ssn, double budget) {
+	
+	/**
+	 * This constructs the Reservations with the first name, his/her budget
+	 * the airline, and txt file of flights he/her may go to
+	 * @param airline that the user chooses
+	 * @param size
+	 * @param flight2 List of flights that they may choose from
+	 * @param fname The first name of the user
+	 * @param ssn The Social Security number of the User
+	 * @param budget The amount the user may spend on his/her flight
+	 */
+	public Reservation(String airline, Scanner flight2,String fname, String ssn, double budget) {
 		this.airline = airline;
-		this.size = size;
 		this.flight2 = flight2;
 		this.fname = fname;
 		this.ssn = ssn;
 		this.budget = budget;
 	}
-	
+
 	public void purchase() throws IOException {
-		System.out.println(size);
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		

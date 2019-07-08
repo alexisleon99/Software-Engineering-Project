@@ -7,6 +7,13 @@ public class Person {
 	int birthDay;
 	double budget;  
 	
+	/**
+	 * Constructor that constructs the person object
+	 * @param fname First name of the user
+	 * @param lname Last name of the user
+	 * @param ssn Social security of the user
+	 * @param budget Budget that the user may spend on the flight
+	 */
 	public Person(String fname, String lname,String ssn, double budget) {
 		this.fname = fname;
 		this.lname = lname;
@@ -24,11 +31,19 @@ public class Person {
 	public int getBday (int birthDay) {
 		return birthDay; 
 	}
- 
+	/**
+	 * Method simply returns the users SSN
+	 * @param ssn
+	 * @return
+	 */
 	public int getSsn (int ssn) {
 		return ssn; 
 	}
-	
+	/**
+	 * This is the menu that the user interacts with in order to 
+	 * find/search/purchase his/her flights
+	 * @throws IOException
+	 */
 	public void menu () throws IOException {
 		System.out.println("\nhello " + fname + " what would you like to do?");
 			
@@ -45,7 +60,7 @@ public class Person {
 		}else if(response == 2){
 			System.out.println("Direclty purchasing ticket");
 			
-			Reservation directp = new Reservation(fname, response, input, null, null, budget);
+			Reservation directp = new Reservation(fname, input, null, null, budget);
 			directp.directp();
 		}else if(response == 3){
 			System.out.println("Command not yet added");

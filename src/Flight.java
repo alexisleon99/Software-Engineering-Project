@@ -16,7 +16,7 @@ public class Flight {
 		this.budget = budget;
 	}
 	public void search() throws IOException {
-		int size = 0;
+
 		Scanner input = new Scanner(System.in);
 		
 		File file = new File("src\\"+airline+".txt"); 
@@ -24,7 +24,7 @@ public class Flight {
 	
 		while (flight.hasNextLine()) {
 			System.out.println(flight.nextLine());
-			size++;
+
 		}
 		flight.close();
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
@@ -32,7 +32,7 @@ public class Flight {
 		int answer = input.nextInt();
 		
 		if(answer == 1) {
-			Reservation ticket = new Reservation(airline,size,flight,fname,ssn, budget); 
+			Reservation ticket = new Reservation(airline,flight,fname,ssn, budget); 
 			ticket.purchase();
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");

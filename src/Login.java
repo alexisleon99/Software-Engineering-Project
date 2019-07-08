@@ -1,9 +1,19 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-
+/**
+ * This is the actor/class where the program begins
+ * @author Jose Delgado
+ *
+ */
 public class Login {
-
+	/**
+	 * This is the main method where the user 
+	 * is prompted to enter some credentials needs for 
+	 * his/her flight reservation
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {	
 		Scanner input = new Scanner(System.in);
 		
