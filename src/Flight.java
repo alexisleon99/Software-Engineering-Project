@@ -48,7 +48,6 @@ public class Flight {
 		
 		if(answer.equals("yes")) {
 			
-			
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			ticket.purchase();
 		}else {
@@ -56,48 +55,5 @@ public class Flight {
 			System.exit(0);
 		}
 		input.close();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		Scanner input = new Scanner(System.in);
-		
-		File file = new File("src\\"+airline+".txt"); 
-		Scanner flight = new Scanner(file); 
-	
-		while (flight.hasNextLine()) {
-			System.out.println(flight.nextLine());
-
-		}
-		flight.close();
-		System.out.println("Will you like to purchase a reservation to one of these destinations?");
-		System.out.println("1 - YES Reserve" + "\n2 - NO Just looking around");
-		int answer = input.nextInt();
-		
-		if(answer == 1) {
-			Reservation ticket = new Reservation(airline,flight,fname,ssn, budget); 
-			ticket.purchase();
-		}else {
-			System.out.println("Thank you for searching through " + airline + " flights");
-		}
-		input.close();	*/
 	}	
 }

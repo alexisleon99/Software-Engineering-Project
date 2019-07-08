@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-
 /**
  * 
  * @author Jose Delgado
@@ -36,110 +35,37 @@ public class Reservation {
 		double balance = 0;
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
-		
-		
-		
-		
-		/*String [] destinations = null;
-		FileReader read = new FileReader("src\\"+airline+".txt");
-		BufferedReader br = new BufferedReader(read);
-		String s = null;*/
-		
+			
 		System.out.println("Choose which location you will like to visit");
 		String visit = input.nextLine();
 		
-		
-		
-		
-		
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
-			
-			
-			SeatClass type = new SeatClass(cost);
-			type.chooser(cost);
-			
-			
-
-			
+			Seat type = new Seat(cost,visit);
+			type.SeatClass(cost,visit);		
 		}
-		
-		//cashcheck(destinations,br,visit,s);
-		
-		/*
-		int count = 0;
-		String filename = "reservations.txt";
-		PrintWriter outputStream = new PrintWriter(filename);
-		while((s=br.readLine()) !=null) {
-			destinations = s.split(" ");
-			for(String destination : destinations) {
-				if(destination.equals(visit)) {
-					count++;
-	
-					outputStream.println("***Reservation List***");
-					outputStream.println("SSN\t" + "Firstname\t" + "Destination");
-					outputStream.println(ssn + "\t" + fname + "\t" + destination);
-					
-					System.out.println("reservation was a success enjoy your flight");	
-				}
-			}
-		}
-		if(count ==0) {
-			System.out.println("Sorry Sir/Mam that destination is not being traveled to by that Airline");
-		}
-		
-		System.out.println("Add another Flight?");
-		String a = input.next();
-		String b = "yes";
-		if(a == b) {
-			purchase();
-		}else {
-			outputStream.flush();
-			outputStream.close();
-			input.close();			
-		}*/
-
 	}
 	
-	public void directp() throws IOException {
+	/*public void directp() throws IOException {
 		System.out.println("hello sir/mam");
 		System.out.println("Please choose your desired airline");
 		String airline = input.next();
 		
-		String [] destinations = null;
-		FileReader read = new FileReader("src\\"+airline+".txt");
-		BufferedReader br = new BufferedReader(read);
-		String s = null;
+
 		
 		System.out.println("Choose which location you will like to visit");
 		
 		String visit = input.next();
 		System.out.println(visit);
 		
-		//cashcheck(destinations,br,visit,s);
-		
 		int count = 0;
 		String filename = "reservations.txt";
 		PrintWriter outputStream = new PrintWriter(filename);
-		while((s=br.readLine()) !=null) {
-			destinations = s.split(" ");
-			for(String destination : destinations) {
-				if(destination.equals(visit)) {
-					count++;
 
-					outputStream.println("***Reservation List***");
-					outputStream.println("SSN\t" + "Firstname\t" + "Destination");
-					outputStream.println(ssn + "\t" + fname + "\t" + visit);
-					
-					System.out.println("reservation was a success enjoy your flight");	
-				}
-			}
-
-		}
 		if(count ==0) {
 			System.out.println("Sorry Sir/Mam that destination is not being traveled to by that Airline");
 		}
-	}
+	}*/
 	
 	public static void cashcheck(Double cost, double budget){
 		System.out.println("Your Budget is " + budget);
@@ -153,22 +79,19 @@ public class Reservation {
 		}
 	}
 	
-	public static void finalizePurchase(double cost) throws FileNotFoundException {
+	public static void finalizePurchase(double cost, char row, int number, String visit) throws FileNotFoundException {
 		double balance;
-		System.out.println("Your class cost is " + cost);
 		cashcheck(cost,budget);
 		balance = budget - cost;
+		
 		String filename = "reservations.txt";
 		PrintWriter outputStream = new PrintWriter(filename);
 		
 		outputStream.println("***Reservation List***");
-		outputStream.println("SSN\t" + "Firstname\t" + "Destination");
-		outputStream.println(ssn + "\t" + fname + "\t" + balance);
+		outputStream.println("SSN\t" + "First Name\t" + "Destination" + "\tSeat" + "\tBalance");
+		outputStream.println(ssn + "\t" + fname + "\t" + visit + "\t" + row + number + "\t" + balance);
 		outputStream.close();
 		
 		System.out.println("reservation was a success enjoy your flight");	
-		
 	}
-	
-	
 }
