@@ -54,7 +54,6 @@ public class Reservation {
 
 		
 		System.out.println("Choose which location you will like to visit");
-		
 		String visit = input.next();
 		System.out.println(visit);
 		
