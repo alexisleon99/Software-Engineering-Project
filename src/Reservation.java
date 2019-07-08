@@ -4,14 +4,15 @@ import java.util.*;
 
 /**
  * 
- * @author delga
+ * @author Jose Delgado
  *
  */
 public class Reservation {
-	String airline, fname, ssn;
-
-	Scanner flight2;
-	double budget;
+	String airline;
+	static String fname;
+	static String ssn;
+	HashMap map;
+	static double budget;
 	Scanner input = new Scanner(System.in);
 	
 	/**
@@ -19,34 +20,53 @@ public class Reservation {
 	 * the airline, and txt file of flights he/her may go to
 	 * @param airline that the user chooses
 	 * @param size
-	 * @param flight2 List of flights that they may choose from
 	 * @param fname The first name of the user
 	 * @param ssn The Social Security number of the User
 	 * @param budget The amount the user may spend on his/her flight
 	 */
-	public Reservation(String airline, Scanner flight2,String fname, String ssn, double budget) {
+	public Reservation(String airline, String fname, String ssn, double budget, HashMap map) {
 		this.airline = airline;
-		this.flight2 = flight2;
+		this.map = map;
 		this.fname = fname;
 		this.ssn = ssn;
 		this.budget = budget;
 	}
 
 	public void purchase() throws IOException {
+		double balance = 0;
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		
-		String [] destinations = null;
+		
+		
+		
+		/*String [] destinations = null;
 		FileReader read = new FileReader("src\\"+airline+".txt");
 		BufferedReader br = new BufferedReader(read);
-		String s = null;
+		String s = null;*/
 		
 		System.out.println("Choose which location you will like to visit");
 		String visit = input.nextLine();
 		
+		
+		
+		
+		
+		if(map.containsKey(visit)) {
+			Double cost =  (Double) map.get(visit);
+			
+			
+			SeatClass type = new SeatClass(cost);
+			type.chooser(cost);
+			
+			
+
+			
+		}
+		
 		//cashcheck(destinations,br,visit,s);
 		
-		
+		/*
 		int count = 0;
 		String filename = "reservations.txt";
 		PrintWriter outputStream = new PrintWriter(filename);
@@ -77,7 +97,7 @@ public class Reservation {
 			outputStream.flush();
 			outputStream.close();
 			input.close();			
-		}
+		}*/
 
 	}
 	
@@ -121,21 +141,34 @@ public class Reservation {
 		}
 	}
 	
-	/**public boolean cashcheck(String[] destinations, BufferedReader br, String visit, String s) throws IOException {
+	public static void cashcheck(Double cost, double budget){
 		System.out.println("Your Budget is " + budget);
+		System.out.println("Flight Cost is " + cost);
 		
-		while((s=br.readLine()) !=null) {
-			destinations = s.split("");
-			
-			for(String destination : destinations) {
-					
-			
-				System.out.println(destination);
-			}
-			
+		double balance = budget - cost;
+		
+		if(balance < 0) {
+			System.out.println("Sorry sir/mam you do not have sufficient funds");
+			System.exit(0);
 		}
-		return false;
-	}**/
+	}
+	
+	public static void finalizePurchase(double cost) throws FileNotFoundException {
+		double balance;
+		System.out.println("Your class cost is " + cost);
+		cashcheck(cost,budget);
+		balance = budget - cost;
+		String filename = "reservations.txt";
+		PrintWriter outputStream = new PrintWriter(filename);
+		
+		outputStream.println("***Reservation List***");
+		outputStream.println("SSN\t" + "Firstname\t" + "Destination");
+		outputStream.println(ssn + "\t" + fname + "\t" + balance);
+		outputStream.close();
+		
+		System.out.println("reservation was a success enjoy your flight");	
+		
+	}
 	
 	
 }

@@ -1,0 +1,3 @@
+***Reservation List***
+SSN	Firstname	Destination
+238832	Jose	3000.0

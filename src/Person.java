@@ -60,8 +60,8 @@ public class Person {
 		}else if(response == 2){
 			System.out.println("Direclty purchasing ticket");
 			
-			Reservation directp = new Reservation(fname, input, null, null, budget);
-			directp.directp();
+			//Reservation directp = new Reservation(fname, input, null, null, budget);
+			//directp.directp();
 		}else if(response == 3){
 			System.out.println("Command not yet added");
 			System.exit(0);
