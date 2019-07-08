@@ -31,6 +31,7 @@ public class Reservation {
 		
 		//cashcheck(destinations,br,visit,s);
 		
+		
 		int count = 0;
 		String filename = "reservations.txt";
 		PrintWriter outputStream = new PrintWriter(filename);
