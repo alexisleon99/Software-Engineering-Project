@@ -1,27 +1,41 @@
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Flight {
-	String flightNum;
-	String originAirport;
-	String destinationAriport;
-	boolean isFull;
-	double potentialValue;
-	double actualValue;
-	LocalDate departureDate;
-	LocalTime departureTime;
-	
-	public Flight(String flightNum,String originAirport, String destinationAirport
-			,int hour,int minute) {
-		this.flightNum = flightNum;
-		this.originAirport = originAirport;
-		this.destinationAriport = destinationAirport;
-		departureDate = LocalDate.now();
-		departureTime = LocalTime.of(hour, minute);
-	}
-	
-	public String getFlightNum() {
-		return flightNum;
-	}
+	String airline;
 
+	public Flight(String airline) {
+		this.airline = airline;
+		
+	}
+	public void search() throws FileNotFoundException {
+		int size = 0;
+		Scanner input = new Scanner(System.in);
+		
+		File file = new File("src\\"+airline+".txt"); 
+		Scanner flight = new Scanner(file); 
+		  
+		
+		while (flight.hasNextLine()) {
+			System.out.println(flight.nextLine());
+			size++;
+		}
+		
+		flight.close();
+		System.out.println("Will you like to purchase a reservation to one of these destinations?");
+		int answer = input.nextInt();
+		
+		if(answer == 1) {
+			Reservation ticket = new Reservation(airline,size,flight); 
+			ticket.purchase();
+		}else {
+			System.out.println("Thank you for searching through " + airline + " flights");
+		}
+		
+		input.close();
+		
+	}
+	
 }
+
