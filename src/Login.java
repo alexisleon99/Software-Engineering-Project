@@ -1,9 +1,20 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
-
+/**
+ * This is the actor/class where the program begins
+ * @author Jose Delgado
+ *
+ */
 public class Login {
-
-	public static void main(String[] args) throws FileNotFoundException {	
+	/**
+	 * This is the main method where the user 
+	 * is prompted to enter some credentials needs for 
+	 * his/her flight reservation
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {	
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Hello welcome to Atlanta International Airport");
@@ -14,11 +25,11 @@ public class Login {
 		String lname = input.next();
 		System.out.println("Enter SSN");
 		String ssn = input.next();
+		System.out.println("Please enter your budget for your flight");
+		double budget = input.nextDouble();
 		
-		Person user = new Person(fname, lname, ssn);
+		Person user = new Person(fname, lname, ssn, budget);
 		user.menu();
 		input.close();
-		
-	
 	}
 }

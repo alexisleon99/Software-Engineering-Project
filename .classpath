@@ -5,6 +5,10 @@
 <<<<<<< HEAD
 =======
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<<<<<<< HEAD
 >>>>>>> a002430311801d0fe14abcfa8b3e997ade4dc46c
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+>>>>>>> Delgado_2
 	<classpathentry kind="output" path="bin"/>
 </classpath>
