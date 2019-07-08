@@ -1,0 +1,6 @@
+Chicago $49
+Atlanta $43
+Orlando $42
+Austin $41
+Portland $45
+Los Angeles $40
