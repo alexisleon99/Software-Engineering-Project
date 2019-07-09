@@ -1,3 +1,0 @@
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-12121212  Hugh         Austin         O41    6000.00
