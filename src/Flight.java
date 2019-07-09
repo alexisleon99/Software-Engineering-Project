@@ -6,10 +6,13 @@ import java.util.Scanner;
 /**
  * This class implements a simple flight object which is used to search and 
  * find flights of diffrent airlines.
- * @author alexis
+ * @author Jose Delgado
+ * @author Alexis Leon
+ * @author Ajay Patel
  * @version Sprint_1
  */
 public class Flight {
+	private Reservation Reservation;
 	String airline;
 	String fname;
 	String ssn;
@@ -43,13 +46,11 @@ public class Flight {
 	 * If person chooses to make a reservation, the search method will create an object of reservation 
 	 * using the airline, first name, ssn, budget, and the map data structure for tickets
 	 * </p>
-	 * @see {@link Reservation}
 	 * 
 	 * 
 	 * @throws IOException Used in case of the an IO error and is handled to allow program form crashing.
 	 */
 	public void search() throws IOException {
-
 		Scanner input = new Scanner(System.in);
 		HashMap <String,Double> map = new HashMap();
 		

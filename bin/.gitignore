@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /AirLineAgent.class
 /Airlines.class
 /Flight.class
@@ -15,3 +16,13 @@
 /delta.txt
 /jetblue.txt
 /doc/
+=======
+/.classpath
+/.metadata/
+/.project
+/.settings/
+/Sprint1Class.jpg
+/reservations.txt
+/doc/
+/Flight Reservation System.ucls
+>>>>>>> Delgado_2

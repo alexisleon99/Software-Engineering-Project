@@ -11,8 +11,8 @@ class FlightTest {
 		String ssn = "84812789";
 		double budget = 10000;
 		Flight test = new Flight(Airline,fname,ssn,budget);
-		
-		
+
+		//flight test = new Flight();
 	}
 
 	@Test
