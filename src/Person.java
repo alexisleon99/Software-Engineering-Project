@@ -1,7 +1,15 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-
+/**
+ * This class implements a simple object of person.
+ * <p>
+ * This person object is used to save the information regarding any person who wishes
+ * to purchase a flight.
+ * </P>
+ * @author Jose
+ *
+ */
 public class Person {
 	private Flight Flight;
 	String fname,lname,ssn;
@@ -21,7 +29,12 @@ public class Person {
 		this.ssn = ssn;
 		this.budget = budget;
 	}
-
+/**
+ * This method simple returns the first and last name of the person object
+ * @param fname this is the first name.
+ * @param lname this is the last name.
+ * @return
+ */
 	public String getName(String fname, String lname) {
 		this.fname = fname; 
 		this.lname = lname; 
@@ -44,6 +57,7 @@ public class Person {
 	 * This is the menu that the user interacts with in order to 
 	 * find/search/purchase his/her flights
 	 * @throws IOException
+	 * @see {@link flight}
 	 */
 	public void menu () throws IOException {
 		System.out.println("\nhello " + fname + " what would you like to do?");
@@ -69,5 +83,7 @@ public class Person {
 			System.exit(0);
 		}		
 		input.close();
+
 	} 
 }
+

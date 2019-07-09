@@ -6,7 +6,12 @@ class FlightTest {
 
 	@Test
 	void testFlight() {
-		fail("Not yet implemented");
+		String Airline = "Delta";
+		String fname = "Alexis";
+		String ssn = "84812789";
+		//flight test = new Flight();
+		
+		
 	}
 
 	@Test
