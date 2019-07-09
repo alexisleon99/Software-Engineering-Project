@@ -3,30 +3,37 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class PersonTest {
-
+	
+	Person person = new Person("Ajay","patel", "123456789", 1000);
+	
 	@Test
-	void testPerson() {
-		fail("Not yet implemented");
+	void testPerson() {	
+		String expected = "Ajay patel";
+		String actual = person.getName();
+		assertEquals(expected,actual);
 	}
 
 	@Test
 	void testGetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetBday() {
-		fail("Not yet implemented");
+		String expected = "Ajay patel";
+		String actual = person.getName();
+		assertEquals(expected,actual);
 	}
 
 	@Test
 	void testGetSsn() {
-		fail("Not yet implemented");
+		String expected = "123456789";
+		String actual1 = person.getSsn();
+		assertEquals(expected,actual1);
+		
 	}
 
+	
+	//commited it out but just in case we need to implement it later 
+	/*
 	@Test
 	void testMenu() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
-
+	*/
 }

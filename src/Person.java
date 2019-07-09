@@ -21,7 +21,7 @@ public class Person {
 		this.budget = budget;
 	}
 
-	public String getName(String fname, String lname) {
+	public String getName() {
 		this.fname = fname; 
 		this.lname = lname; 
 		String name = fname + " " + lname;
@@ -36,7 +36,7 @@ public class Person {
 	 * @param ssn
 	 * @return
 	 */
-	public int getSsn (int ssn) {
+	public String getSsn () {
 		return ssn; 
 	}
 	/**
