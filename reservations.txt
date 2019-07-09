@@ -1,3 +1,3 @@
 ***Reservation List***
-SSN	First Name	Destination	Seat	Balance
-111	alex	Austin	V21	6500.0
+SSN       First Name   Destination    Seat   Balance
+12121212  Hugh         Austin         O41    6000.00

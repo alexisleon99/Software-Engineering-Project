@@ -4,8 +4,9 @@ import java.util.Scanner;
 /**
  * This implements a object of Seat type, which is used to choose the seat type when purchasing a 
  * flight
+ * @author Jose Delgado
  * @author Alexis Leon
- * @see {@link Reservation}
+ * @author Ajay Patel
  */
 public class Seat {
 	private Reservation Reservation;
@@ -30,11 +31,11 @@ public class Seat {
 	 * @param cost This is the cost of the flight that was chosen by the person to the certain
 	 * Destination.
 	 * @param visit This is the destination that was chosen.
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException Throws an exeption if the file is not found
 	 */
 	public void SeatClass(Double cost, String visit) throws FileNotFoundException{
 		System.out.println("Please choose what type of seat you will Like");
-		System.out.println("First" + "/t" + "Business" +"/t" + "Economy");
+		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
 		String type = seat.next();
 		if(type.equals("First")) {
 			cost = cost * 2;
@@ -51,15 +52,16 @@ public class Seat {
 	 * @param cost This is the cost of the flight.
 	 * @param visit This is the destination of the flight.
 	 * <p>
-	 * once the row and seat letter has been randomized it will pass the 
+	 * once the row and seat letter has been generated it will call the last method the 
+	 * FinalizePurchase method
 	 * </p>
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException Throws the exception if the file is not found.
 	 */
 	public void SeatChart(double cost,String visit) throws FileNotFoundException {
 		Random r = new Random();
 		int letter = r.nextInt(90 - 65) + 65;
 		char row = (char)letter;
 		int number = r.nextInt(100);
-		Reservation.finalizePurchase(cost, row, number,visit);
+		Reservation.FinalizePurchase(cost, row, number,visit);
 	}
 }

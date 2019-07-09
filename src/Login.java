@@ -4,6 +4,8 @@ import java.util.*;
 /**
  * This is the actor/class where the program begins
  * @author Jose Delgado
+ * @author Alexis Leon
+ * @author Ajay Patel
  *
  */
 public class Login {
@@ -12,8 +14,8 @@ public class Login {
 	 * This is the main method where the user 
 	 * is prompted to enter some credentials needs for 
 	 * his/her flight reservation
-	 * @param args
-	 * @throws IOException
+	 * @param args Simply the arguments line
+	 * @throws IOException An exception that is thrown
 	 */
 	public static void main(String[] args) throws IOException {	
 		Scanner input = new Scanner(System.in);
