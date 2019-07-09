@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /.classpath
 /.metadata/
 /.project
@@ -5,3 +6,12 @@
 /Sprint1Class.jpg
 /doc/
 /reservations.txt
+=======
+/FlightTest.class
+/Login.class
+/LoginTest.class
+/PersonTest.class
+/ReservationTest.class
+/delta.txt
+/jetblue.txt
+>>>>>>> master
