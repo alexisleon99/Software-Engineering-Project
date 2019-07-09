@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Person {
+	private Flight Flight;
 	String fname,lname,ssn;
 	int birthDay;
 	double budget;  

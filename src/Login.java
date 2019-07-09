@@ -7,6 +7,7 @@ import java.util.*;
  *
  */
 public class Login {
+	private Person Person;
 	/**
 	 * This is the main method where the user 
 	 * is prompted to enter some credentials needs for 

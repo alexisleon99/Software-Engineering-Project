@@ -7,6 +7,7 @@ import java.util.*;
  *
  */
 public class Reservation {
+	private Seat Seat;
 	String airline;
 	static String fname;
 	static String ssn;

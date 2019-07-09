@@ -1,3 +1,3 @@
 ***Reservation List***
 SSN	First Name	Destination	Seat	Balance
-7327732	Jose	Austin	X34	3000.0
+121212	ose	Austin	O76	3000.0
