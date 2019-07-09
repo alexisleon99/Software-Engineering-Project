@@ -29,7 +29,7 @@ public class Reservation {
 	 * @param budget The amount the user may spend on his/her flight
 	 * @param map This is what contains the flight along with the price
 	 */
-	public Reservation(String airline, String fname, String ssn, double budget, HashMap map) {
+	public Reservation(String airline, String fname, String ssn, double budget,HashMap map) {
 		this.airline = airline;
 		this.map = map;
 		this.fname = fname;
