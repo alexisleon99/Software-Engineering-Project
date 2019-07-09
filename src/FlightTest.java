@@ -9,7 +9,8 @@ class FlightTest {
 		String Airline = "Delta";
 		String fname = "Alexis";
 		String ssn = "84812789";
-		flight test = new Flight();
+		double budget = 10000;
+		Flight test = new Flight(Airline,fname,ssn,budget);
 		
 		
 	}
