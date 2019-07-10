@@ -17,6 +17,7 @@ public class Flight {
 	String fname;
 	String ssn;
 	double budget;
+	HashMap <String,Double> map = new HashMap();
 /**
  * This constructs the Flight object with the airline, first name, SSN, and budget.
  * @param airline This is the airline from which the flight is being chosen from.
@@ -30,6 +31,12 @@ public class Flight {
 		this.ssn = ssn;	
 		this.budget = budget;
 	}
+	/*public boolean equals(Flight obj) {
+		if(this == obj)
+		return true;
+		else 
+			return false;
+	}*/
 	/**
 	 * <p>
 	 * This search method allows the person to search the different flights
@@ -53,7 +60,7 @@ public class Flight {
 	 */
 	public HashMap search(String airline) throws IOException {
 		Scanner input = new Scanner(System.in);
-		HashMap <String,Double> map = new HashMap();
+		//HashMap <String,Double> map = new HashMap();
 		
 		if(airline.equals("delta")) {
 			map.put("Austin", (double) 3500);
