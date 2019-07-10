@@ -13,12 +13,12 @@ import java.util.*;
  */
 public class Reservation {
 	private Seat Seat;
-	String airline;
+	static String airline;
 	static String fname;
 	static String ssn;
-	HashMap map;
+	static HashMap map;
 	static double budget;
-	Scanner input = new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
 	
 	/**
 	 * This constructs the Reservations with the first name, his/her budget
@@ -46,17 +46,26 @@ public class Reservation {
 	 * @return 
 	 * @throws IOException throws the exception when the input is failed to be interpreted
 	 */
-	public void purchase() throws IOException {
+	public static double purchase(String string) throws IOException {
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		System.out.println("Choose which location you will like to visit");
 		String visit = input.nextLine();
 		
+		if(string.equals(visit)) {
+			Double cost =  (Double) map.get(visit);
+			Seat type = new Seat(cost,visit);
+		}
+		
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
 			type.SeatClass(visit);	
+			return cost;
+		}else {
+		return 0;
 		}
+		
 	}
 	
 	/**

@@ -82,7 +82,7 @@ public class Flight {
 		
 		if(answer.equals("yes")) {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
-			ticket.purchase();
+			ticket.purchase(answer);
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");
 			System.exit(0);
