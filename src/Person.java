@@ -15,7 +15,7 @@ import java.util.*;
 public class Person {
 	private Flight Flight;
 	String fname,lname,ssn;
-	int birthDay;
+	//int birthDay;
 	double budget;  
 	
 	/**
@@ -31,13 +31,8 @@ public class Person {
 		this.ssn = ssn;
 		this.budget = budget;
 	}
-/**
- * This method simple returns the first and last name of the person object
- * @param fname this is the first name.
- * @param lname this is the last name.
- * @return the name of the person.
- */
-	public String getName(String fname, String lname) {
+
+	public String getName() {
 		this.fname = fname; 
 		this.lname = lname; 
 		String name = fname + " " + lname;
@@ -49,15 +44,17 @@ public class Person {
 	 * @param ssn Its the SSN of the person
 	 * @return the SSN of the person
 	 */
-	public int getSsn (int ssn) {
+	public String getSsn () {
 		return ssn; 
 	}
 	/**
 	 * This is the menu that the user interacts with in order to 
 	 * find/search/purchase his/her flights
+	 * @return 
 	 * @throws IOException Throw a IO exception if the input our output fails
 	 */
-	public void menu () throws IOException {
+	public int menu () throws IOException {
+		
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation");
 		Scanner input = new Scanner(System.in);
@@ -68,7 +65,7 @@ public class Person {
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
 			Flight order = new Flight(airline,fname,ssn,budget);
-			order.search();
+			order.search(airline);
 		}else if(response == 2){
 			System.out.println("Command not yet added");
 			System.exit(0);
@@ -80,7 +77,8 @@ public class Person {
 			System.exit(0);
 		}		
 		input.close();
-
+		return response;
 	} 
+	
 }
 

@@ -53,11 +53,12 @@ public class Flight {
 	 * If person chooses to make a reservation, the search method will create an object of reservation 
 	 * using the airline, first name, ssn, budget, and the map data structure for tickets
 	 * </p>
+	 * @return 
 	 * 
 	 * 
 	 * @throws IOException Used in case of the an IO error and is handled to allow program form crashing.
 	 */
-	public void search() throws IOException {
+	public HashMap search(String airline) throws IOException {
 		Scanner input = new Scanner(System.in);
 		//HashMap <String,Double> map = new HashMap();
 		
@@ -79,6 +80,7 @@ public class Flight {
 			System.out.println(map);
 		}else {
 			System.out.println("Airline not with airport");
+			System.exit(0);
 		}
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
 		System.out.println("1 - YES Reserve" + "\n2 - NO Just looking around");
@@ -86,14 +88,15 @@ public class Flight {
 		String answer = input.next();
 		
 		if(answer.equals("yes")) {
-			
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			ticket.purchase();
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");
 			System.exit(0);
 		}
+		
 		input.close();
+		return map;
 
 	}	
 }

@@ -7,35 +7,17 @@ import java.util.HashMap;
 import org.junit.jupiter.api.Test;
 
 class FlightTest {
-	Flight expectedTest = new Flight("Delta","Alexis","84812789",10000.00);
 	@Test
-	void testFlight() {
-		
-		String Airline = "Delta";
-		String fname = "Alexis";
-		String ssn = "84812789";
-		double budget = 10000.00;
-		Flight test = new Flight(Airline,fname,ssn,budget);
-		System.out.println(test.equals(expectedTest));
-		assertTrue(test.equals(test));
+	void testSearch() throws IOException {
+		Flight flight = new Flight("delta", null, null, 10000.0); 
+		HashMap <String,Double> expected = new HashMap();
+		expected.put("Austin", (double) 3500);
+		expected.put("Portland", (double) 4500);
+		expected.put("Chicago", (double) 3800);
+		expected.put("Miami", (double) 3200);
+		expected.put("New York", (double) 3000);
+		expected.put("Arizona", (double) 5000);			
+		HashMap actual = flight.search("delta");
+		assertEquals(expected,actual);
 	}
-	@Test
-	void testSearch() {
-		try {
-			HashMap <String,Double> map2 = new HashMap();
-			map2.put("Austin", (double) 3500);
-			System.out.println("please enter Austin for the location");
-			System.out.println(map2.entrySet());
-			expectedTest.search();
-			//System.out.println(map.entrySet());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
-
-
-
 }

@@ -29,7 +29,7 @@ public class Reservation {
 	 * @param budget The amount the user may spend on his/her flight
 	 * @param map This is what contains the flight along with the price
 	 */
-	public Reservation(String airline, String fname, String ssn, double budget, HashMap map) {
+	public Reservation(String airline, String fname, String ssn, double budget,HashMap map) {
 		this.airline = airline;
 		this.map = map;
 		this.fname = fname;
@@ -43,19 +43,19 @@ public class Reservation {
 	 * It also passes the cost and the location of their visit to the seat class
 	 * where it determines the total cost for the trip.
 	 *</p>
+	 * @return 
 	 * @throws IOException throws the exception when the input is failed to be interpreted
 	 */
 	public void purchase() throws IOException {
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
-			
 		System.out.println("Choose which location you will like to visit");
 		String visit = input.nextLine();
 		
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
-			type.SeatClass(cost,visit);		
+			type.SeatClass(visit);	
 		}
 	}
 	
@@ -69,7 +69,7 @@ public class Reservation {
 	 * @param cost Total cost of the trip to help determine if the user has sufficient funds
 	 * @param budget The budget that the user is willing to spend on the flight.
 	 */
-	public static void cashcheck(Double cost, double budget){
+	public static double CashCheck(Double cost, double budget){
 		double balance = budget - cost;
 		System.out.println("Your Budget is " + budget);
 		System.out.println("Flight Cost is " + cost);
@@ -78,6 +78,7 @@ public class Reservation {
 			System.out.println("Sorry sir/mam you do not have sufficient funds");
 			System.exit(0);
 		}
+		return balance;
 	}
 	
 	/**
@@ -93,7 +94,7 @@ public class Reservation {
 	 */
 	public static void FinalizePurchase(double cost, char row, int number, String visit){
 		double balance;
-		cashcheck(cost,budget);
+		CashCheck(cost,budget);
 		balance = budget - cost;
 		
 		String filename = "reservations.txt";

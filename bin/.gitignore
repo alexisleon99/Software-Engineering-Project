@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /AirLineAgent.class
 /Airlines.class
 /Flight.class
@@ -26,3 +27,29 @@
 /doc/
 /Flight Reservation System.ucls
 >>>>>>> Delgado_2
+=======
+/.classpath
+/.metadata/
+/.project
+/.settings/
+/Sprint1Class.jpg
+/doc/
+/AirLineAgent.class
+/Airlines.class
+/Flight.class
+/FlightTest.class
+/Login.class
+/LoginTest.class
+/PaymentProcessor.class
+/Person.class
+/PersonTest.class
+/Reservation.class
+/ReservationTest.class
+/Seat.class
+/SeatChart.class
+/SeatClass.class
+/SeatTest.class
+/delta.txt
+/jetblue.txt
+/reservations.txt
+>>>>>>> Delgado_3
