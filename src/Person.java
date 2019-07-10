@@ -1,10 +1,21 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-
+/**
+ * This class implements a simple object of person.
+ * <p>
+ * This person object is used to save the information regarding any person who wishes
+ * to purchase a flight.
+ * </P>
+ * @author Jose Delgado
+ * @author Alexis Leon
+ * @author Ajay Patel
+ *
+ */
 public class Person {
+	private Flight Flight;
 	String fname,lname,ssn;
-	int birthDay;
+	//int birthDay;
 	double budget;  
 	
 	/**
@@ -21,47 +32,43 @@ public class Person {
 		this.budget = budget;
 	}
 
-	public String getName(String fname, String lname) {
+	public String getName() {
 		this.fname = fname; 
 		this.lname = lname; 
 		String name = fname + " " + lname;
 		return name;
 	}
  
-	public int getBday (int birthDay) {
-		return birthDay; 
-	}
 	/**
 	 * Method simply returns the users SSN
-	 * @param ssn
-	 * @return
+	 * @param ssn Its the SSN of the person
+	 * @return the SSN of the person
 	 */
-	public int getSsn (int ssn) {
+	public String getSsn () {
 		return ssn; 
 	}
 	/**
 	 * This is the menu that the user interacts with in order to 
 	 * find/search/purchase his/her flights
-	 * @throws IOException
+	 * @return 
+	 * @throws IOException Throw a IO exception if the input our output fails
 	 */
-	public void menu () throws IOException {
-		System.out.println("\nhello " + fname + " what would you like to do?");
-			
-		System.out.println("1 - Search Flights" + "\n2 - Purchase" + "\n3 - Cancel Reservation");
-		Scanner input = new Scanner(System.in);
+	public int menu () throws IOException {
 		
+		System.out.println("\nhello " + fname + " what would you like to do?");
+		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation");
+		Scanner input = new Scanner(System.in);
 		int response = input.nextInt();
 		
 		if(response == 1){
 			System.out.println("Search for airline");
+			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
 			Flight order = new Flight(airline,fname,ssn,budget);
-			order.search();
+			order.search(airline);
 		}else if(response == 2){
-			System.out.println("Direclty purchasing ticket");
-			
-			//Reservation purchase = new Reservation(fname, input, null, null, budget);
-			//Reservation.purchase();
+			System.out.println("Command not yet added");
+			System.exit(0);
 		}else if(response == 3){
 			System.out.println("Command not yet added");
 			System.exit(0);
@@ -70,7 +77,8 @@ public class Person {
 			System.exit(0);
 		}		
 		input.close();
-
+		return response;
 	} 
+	
 }
 
