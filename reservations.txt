@@ -1,3 +1,3 @@
 ***Reservation List***
 SSN       First Name   Destination    Seat   Balance
-null      null         Austin         T55    3000.00
+12121212  Jose         Austin         P58   13000.00

@@ -9,8 +9,8 @@ import java.util.Scanner;
  * @author Ajay Patel
  */
 public class Seat {
-	private Reservation Reservation;
-	double cost;
+	private static Reservation Reservation;
+	static double cost;
 	String visit;
 	/**
 	 * This constructor is used in order to create the seat object.
@@ -21,7 +21,7 @@ public class Seat {
 		this.cost = cost;
 		this.visit = visit;
 	}
-	Scanner seat = new Scanner(System.in);
+	static Scanner seat = new Scanner(System.in);
 	/**
 	 * The seatClass method will ask the person when making a reservation which type of seat they 
 	 * would like. 
@@ -34,7 +34,7 @@ public class Seat {
 	 * @return 
 	 * @throws FileNotFoundException Throws an exeption if the file is not found
 	 */
-	public String SeatClass(Double cost, String visit) throws FileNotFoundException{
+	public static String SeatClass(String visit) throws FileNotFoundException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
 		String type = seat.next();
@@ -59,7 +59,7 @@ public class Seat {
 	 * </p>
 	 * @throws FileNotFoundException Throws the exception if the file is not found.
 	 */
-	public void SeatChart(double cost,String visit) throws FileNotFoundException {
+	public static void SeatChart(double cost,String visit) throws FileNotFoundException {
 		Random r = new Random();
 		int letter = r.nextInt(90 - 65) + 65;
 		char row = (char)letter;

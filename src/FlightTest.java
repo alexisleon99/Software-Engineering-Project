@@ -6,7 +6,6 @@ import java.util.HashMap;
 import org.junit.jupiter.api.Test;
 
 class FlightTest {
-
 	@Test
 	void testSearch() throws IOException {
 		Flight flight = new Flight("delta", null, null, 10000.0); 

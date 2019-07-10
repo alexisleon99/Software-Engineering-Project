@@ -73,6 +73,7 @@ public class Flight {
 			System.out.println(map);
 		}else {
 			System.out.println("Airline not with airport");
+			System.exit(0);
 		}
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
 		System.out.println("1 - YES Reserve" + "\n2 - NO Just looking around");
@@ -80,7 +81,6 @@ public class Flight {
 		String answer = input.next();
 		
 		if(answer.equals("yes")) {
-			
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			ticket.purchase();
 		}else {
