@@ -31,9 +31,10 @@ public class Seat {
 	 * @param cost This is the cost of the flight that was chosen by the person to the certain
 	 * Destination.
 	 * @param visit This is the destination that was chosen.
+	 * @return 
 	 * @throws FileNotFoundException Throws an exeption if the file is not found
 	 */
-	public void SeatClass(Double cost, String visit) throws FileNotFoundException{
+	public String SeatClass(Double cost, String visit) throws FileNotFoundException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
 		String type = seat.next();
@@ -41,11 +42,12 @@ public class Seat {
 			cost = cost * 2;
 			SeatChart(cost,visit);
 		}else if(type.equals("Business")) {
-			SeatChart(cost,visit);
 			cost = cost * 1.5;
+			SeatChart(cost,visit);
 		}else if(type.equals("Economy")) {
 			SeatChart(cost,visit);			
 		}
+		return type;
 	}
 	/**
 	 * This method will be used in order to assign a randomized row and seat letter.

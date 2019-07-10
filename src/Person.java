@@ -15,7 +15,7 @@ import java.util.*;
 public class Person {
 	private Flight Flight;
 	String fname,lname,ssn;
-	int birthDay;
+	//int birthDay;
 	double budget;  
 	
 	/**
@@ -55,9 +55,11 @@ public class Person {
 	/**
 	 * This is the menu that the user interacts with in order to 
 	 * find/search/purchase his/her flights
+	 * @return 
 	 * @throws IOException Throw a IO exception if the input our output fails
 	 */
-	public void menu () throws IOException {
+	public int menu () throws IOException {
+		
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation");
 		Scanner input = new Scanner(System.in);
@@ -68,7 +70,7 @@ public class Person {
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
 			Flight order = new Flight(airline,fname,ssn,budget);
-			order.search();
+			order.search(airline);
 		}else if(response == 2){
 			System.out.println("Command not yet added");
 			System.exit(0);
@@ -80,7 +82,8 @@ public class Person {
 			System.exit(0);
 		}		
 		input.close();
-
+		return response;
 	} 
+	
 }
 
