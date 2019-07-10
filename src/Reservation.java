@@ -43,19 +43,19 @@ public class Reservation {
 	 * It also passes the cost and the location of their visit to the seat class
 	 * where it determines the total cost for the trip.
 	 *</p>
+	 * @return 
 	 * @throws IOException throws the exception when the input is failed to be interpreted
 	 */
 	public void purchase() throws IOException {
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
-			
 		System.out.println("Choose which location you will like to visit");
 		String visit = input.nextLine();
 		
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
-			type.SeatClass(cost,visit);		
+			type.SeatClass(visit);	
 		}
 	}
 	

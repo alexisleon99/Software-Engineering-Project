@@ -31,8 +31,8 @@ class PersonTest {
 	@Test
 	void testMenu() throws IOException {
 		int expectedResponse = 1;//create an expected putput
-		Person e = new Person("Jose", "Delgado", "12",10000);//they created an object to test
-		int actualPay = e.menu();//they call the method they are testing
-		assertEquals(expectedResponse, actualPay);//compare 
+		Person e = new Person("Jose", "Delgado", "12",10000.0);//they created an object to test
+		int actualResponse = e.menu();//they call the method they are testing
+		assertEquals(expectedResponse, actualResponse);//compare 
 	}
 }

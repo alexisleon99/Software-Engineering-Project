@@ -80,7 +80,6 @@ public class Flight {
 		String answer = input.next();
 		
 		if(answer.equals("yes")) {
-			
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			ticket.purchase();
 		}else {

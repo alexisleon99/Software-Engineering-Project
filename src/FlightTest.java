@@ -11,7 +11,7 @@ class FlightTest {
 
 	@Test
 	void testSearch() throws IOException {
-		Flight flight = new Flight("delta", null, null, 10000); 
+		Flight flight = new Flight("delta", null, null, 10000.0); 
 		HashMap <String,Double> expected = new HashMap();
 		expected.put("Austin", (double) 3500);
 		expected.put("Portland", (double) 4500);
@@ -21,6 +21,6 @@ class FlightTest {
 		expected.put("Arizona", (double) 5000);	
 		
 		HashMap actual = flight.search("delta");
-		assertSame(flight,actual);
+		assertEquals(expected,actual);
 	}
 }
