@@ -31,13 +31,8 @@ public class Person {
 		this.ssn = ssn;
 		this.budget = budget;
 	}
-/**
- * This method simple returns the first and last name of the person object
- * @param fname this is the first name.
- * @param lname this is the last name.
- * @return the name of the person.
- */
-	public String getName(String fname, String lname) {
+
+	public String getName() {
 		this.fname = fname; 
 		this.lname = lname; 
 		String name = fname + " " + lname;
@@ -49,7 +44,7 @@ public class Person {
 	 * @param ssn Its the SSN of the person
 	 * @return the SSN of the person
 	 */
-	public int getSsn (int ssn) {
+	public String getSsn () {
 		return ssn; 
 	}
 	/**

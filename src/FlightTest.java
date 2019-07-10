@@ -7,19 +7,11 @@ import org.junit.jupiter.api.Test;
 
 class FlightTest {
 
-	@Test
-	void testFlight() {
-		String Airline = "Delta";
-		String fname = "Alexis";
-		String ssn = "84812789";
-		//flight test = new Flight();
-		
-		
-	}
+
 
 	@Test
 	void testSearch() throws IOException {
-		Flight flight = new Flight("delta", null, null, 0); 
+		Flight flight = new Flight("delta", null, null, 10000); 
 		HashMap <String,Double> expected = new HashMap();
 		expected.put("Austin", (double) 3500);
 		expected.put("Portland", (double) 4500);
@@ -30,8 +22,5 @@ class FlightTest {
 		
 		HashMap actual = flight.search("delta");
 		assertSame(flight,actual);
-		
-
 	}
-
 }
