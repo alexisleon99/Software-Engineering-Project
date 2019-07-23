@@ -47,6 +47,7 @@ public class Reservation {
 	 * @throws IOException throws the exception when the input is failed to be interpreted
 	 */
 	public static double purchase(String string) throws IOException {
+		//why is this double?
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		System.out.println("Choose which location you will like to visit");
@@ -102,6 +103,8 @@ public class Reservation {
 	 * @param visit This is the location of their visit.
 	 */
 	public static void FinalizePurchase(double cost, char row, int number, String visit){
+		Scanner kb = new Scanner(System.in);
+		String answer;
 		double balance;
 		CashCheck(cost,budget);
 		balance = budget - cost;

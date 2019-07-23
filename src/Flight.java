@@ -83,12 +83,13 @@ public class Flight {
 			System.exit(0);
 		}
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
-		System.out.println("1 - YES Reserve" + "\n2 - NO Just looking around");
+		System.out.println("1 - Yes Reserve" + "\n2 - NO Just looking around");
 		
 		String answer = input.next();
 		
-		if(answer.equals("yes")) {
+		if(answer.equals("Yes Reserve")) {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
+			//this returns a double type, shouldn't it be a void method
 			ticket.purchase(answer);
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");

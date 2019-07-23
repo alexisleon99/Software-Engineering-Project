@@ -66,6 +66,11 @@ public class Person {
 			String airline = input.next();
 			Flight order = new Flight(airline,fname,ssn,budget);
 			order.search(airline);
+			//starting companion part
+			System.out.println("Would you like to add companions?");
+			System.out.println("1 - yes" + "\n2 - no");
+			String ant = input.next();
+			System.out.println(ant);
 		}else if(response == 2){
 			System.out.println("Command not yet added");
 			System.exit(0);
