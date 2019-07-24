@@ -44,6 +44,7 @@ public class Login {
 				int budget = 0;
 				Person user = new Person(fname, lname, ssn, budget);
 				user.cancelMenu(ssn);
+
 				System.exit(0);
 			}else {
 				System.out.println("Please enter your budget for your flight");

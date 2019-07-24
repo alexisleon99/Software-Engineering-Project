@@ -12,7 +12,7 @@ import java.util.*;
  * @author Ajay Patel
  *
  */
-public class Person {
+public class Person extends Login{
 	private Flight Flight;
 	String fname,lname,ssn;
 	//int birthDay;
@@ -68,15 +68,16 @@ public class Person {
 			String airline = input.next();
 			Flight order = new Flight(airline,fname,ssn,budget);
 			order.lists(airline);
+			Airlines.list(map);
 			order.search();
 
 		}else if(response == 2){
 			System.out.println("Going to Cancel Reservation");
 			
-			Cancelation.cancel(ssn);
+			//Cancelation.cancel(ssn);
 		}else if(response == 3){
 			System.out.println("Going to Reschedule Reservation");
-			Cancelation.reschedule(ssn);
+			//Cancelation.reschedule(ssn);
 		}else {
 			System.out.println("Command Not Recognized");
 			System.exit(0);
