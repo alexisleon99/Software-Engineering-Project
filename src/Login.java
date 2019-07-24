@@ -41,7 +41,7 @@ public class Login {
 			
 
 			if(response.equals("yes")) {
-				Cancelation.cancel(ssn);
+				//Cancelation.cancel(ssn);
 				System.exit(0);
 			}else {
 				System.out.println("Please enter your budget for your flight");

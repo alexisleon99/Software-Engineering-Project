@@ -57,7 +57,7 @@ public class Flight extends Login {
 			map.put("Miami", (double) 3200);
 			map.put("New York", (double) 3000);
 			map.put("Arizona", (double) 5000);	
-			//System.out.println(map);
+			System.out.println(map);
 		}else if(airline.equals("jetblue")){
 			map.put("Mexico", (double) 3500);
 			map.put("Canada", (double) 4500);
