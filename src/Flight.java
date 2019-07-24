@@ -11,14 +11,16 @@ import java.util.Scanner;
  * @author Ajay Patel
  * @version Sprint_1
  */
-public class Flight {
+public class Flight extends Login {
+	
 	private Reservation Reservation;
 	String airline;
 	String fname;
 	String ssn;
 	double budget;
-	HashMap <String,Double> map = new HashMap();
-/**
+	
+	Scanner input = new Scanner(System.in);
+	/**
  * This constructs the Flight object with the airline, first name, SSN, and budget.
  * @param airline This is the airline from which the flight is being chosen from.
  * @param fname this is the first name of the person who wishes to take the flight.
@@ -37,6 +39,46 @@ public class Flight {
 		else 
 			return false;
 	}*/
+	
+	
+	
+	
+	
+	
+	
+	public static void lists(String airline) {
+		
+		//HashMap <String,Double> map = new HashMap();
+		
+		if(airline.equals("delta")) {
+			map.put("Austin", (double) 3500);
+			map.put("Portland", (double) 4500);
+			map.put("Chicago", (double) 3800);
+			map.put("Miami", (double) 3200);
+			map.put("New York", (double) 3000);
+			map.put("Arizona", (double) 5000);	
+			//System.out.println(map);
+		}else if(airline.equals("jetblue")){
+			map.put("Mexico", (double) 3500);
+			map.put("Canada", (double) 4500);
+			map.put("Bali", (double) 3800);
+			map.put("Japan", (double) 3200);
+			map.put("Brazil", (double) 3000);
+			map.put("United Kingdom", (double) 5000);	
+			System.out.println(map);
+		}else {
+			System.out.println("Airline not with airport");
+			System.exit(0);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * <p>
 	 * This search method allows the person to search the different flights
@@ -58,30 +100,8 @@ public class Flight {
 	 * 
 	 * @throws IOException Used in case of the an IO error and is handled to allow program form crashing.
 	 */
-	public HashMap search(String airline) throws IOException {
-		Scanner input = new Scanner(System.in);
-		//HashMap <String,Double> map = new HashMap();
+	public HashMap search() throws IOException {
 		
-		if(airline.equals("delta")) {
-			map.put("Austin", (double) 3500);
-			map.put("Portland", (double) 4500);
-			map.put("Chicago", (double) 3800);
-			map.put("Miami", (double) 3200);
-			map.put("New York", (double) 3000);
-			map.put("Arizona", (double) 5000);	
-			System.out.println(map);
-		}else if(airline.equals("jetblue")){
-			map.put("Mexico", (double) 3500);
-			map.put("Canada", (double) 4500);
-			map.put("Bali", (double) 3800);
-			map.put("Japan", (double) 3200);
-			map.put("Brazil", (double) 3000);
-			map.put("United Kingdom", (double) 5000);	
-			System.out.println(map);
-		}else {
-			System.out.println("Airline not with airport");
-			System.exit(0);
-		}
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
 		System.out.println("1 - Yes Reserve" + "\n2 - NO Just looking around");
 		

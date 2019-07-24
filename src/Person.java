@@ -56,27 +56,27 @@ public class Person {
 	public int menu () throws IOException {
 		
 		System.out.println("\nhello " + fname + " what would you like to do?");
-		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation");
+		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation" + "\n3 - Reschedule");
 		Scanner input = new Scanner(System.in);
 		int response = input.nextInt();
+		
+		
 		
 		if(response == 1){
 			System.out.println("Search for airline");
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
+			
+			
+			
 			Flight order = new Flight(airline,fname,ssn,budget);
-			order.search(airline);
-			//starting companion part
-			System.out.println("Would you like to add companions?");
-			System.out.println("1 - yes" + "\n2 - no");
-			String ant = input.next();
-			System.out.println(ant);
 		}else if(response == 2){
-			System.out.println("Command not yet added");
-			System.exit(0);
+			System.out.println("Going to Cancel Reservation");
+			
+			Cancelation.cancel(ssn);
 		}else if(response == 3){
-			System.out.println("Command not yet added");
-			System.exit(0);
+			System.out.println("Going to Reschedule Reservation");
+			Cancelation.reschedule(ssn);
 		}else {
 			System.out.println("Command Not Recognized");
 			System.exit(0);

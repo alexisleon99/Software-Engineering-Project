@@ -103,13 +103,12 @@ public class Reservation {
 	 * @param visit This is the location of their visit.
 	 */
 	public static void FinalizePurchase(double cost, char row, int number, String visit){
-		Scanner kb = new Scanner(System.in);
-		String answer;
+
 		double balance;
 		CashCheck(cost,budget);
 		balance = budget - cost;
 		
-		String filename = "reservations.txt";
+		String filename = "reservations"+ssn+".txt";
 		PrintWriter outputStream = null;
 		try {
 			outputStream = new PrintWriter(filename);
