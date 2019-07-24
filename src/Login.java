@@ -9,7 +9,7 @@ import java.util.*;
  *
  */
 public class Login {
-	private Person Person;
+	private static Person Person;
 	static HashMap <String,Double> map = new HashMap();
 	/**
 	 * This is the main method where the user 
@@ -41,12 +41,13 @@ public class Login {
 			
 
 			if(response.equals("yes")) {
-				Cancelation.cancel(ssn);
+				int budget = 0;
+				Person user = new Person(fname, lname, ssn, budget);
+				user.cancelMenu(ssn);
 				System.exit(0);
 			}else {
 				System.out.println("Please enter your budget for your flight");
 				double budget = input.nextDouble();
-				
 				Person user = new Person(fname, lname, ssn, budget);
 				user.menu();
 				input.close();	

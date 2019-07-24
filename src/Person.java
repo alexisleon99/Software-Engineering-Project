@@ -17,7 +17,7 @@ public class Person {
 	String fname,lname,ssn;
 	//int birthDay;
 	double budget;  
-	
+	Scanner input = new Scanner(System.in);
 	/**
 	 * Constructor that constructs the person object
 	 * @param fname First name of the user
@@ -57,7 +57,7 @@ public class Person {
 		
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation" + "\n3 - Reschedule");
-		Scanner input = new Scanner(System.in);
+		
 		int response = input.nextInt();
 		
 		
@@ -66,10 +66,10 @@ public class Person {
 			System.out.println("Search for airline");
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
-			
-			
-			
 			Flight order = new Flight(airline,fname,ssn,budget);
+			order.lists(airline);
+			order.search();
+
 		}else if(response == 2){
 			System.out.println("Going to Cancel Reservation");
 			
@@ -84,6 +84,21 @@ public class Person {
 		input.close();
 		return response;
 	} 
+	
+
+	public void cancelMenu(String ssn) throws IOException {
+		System.out.println("Hello will you like to cancel or reschedule");
+		System.out.println("Type 'cancel' to cancel flight or Type 'reschedule'");
+		
+		String interaction = input.next();
+		
+		if(interaction.equals("cancel")){
+			Cancelation.cancel(ssn);
+		}else if(interaction.equals("reschedule")) {
+			Cancelation.reschedule(ssn);
+		}
+		
+	}
 	
 }
 
