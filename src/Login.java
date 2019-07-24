@@ -24,15 +24,31 @@ public class Login {
 		System.out.println("Please sign in");
 		System.out.println("Enter First Name");
 		String fname = input.next();
+		
+		/*if() {
+			
+		}*/
+		
 		System.out.println("Enter last Name");
 		String lname = input.next();
+		
 		System.out.println("Enter SSN");
 		String ssn = input.next();
-		System.out.println("Please enter your budget for your flight");
-		double budget = input.nextDouble();
 		
-		Person user = new Person(fname, lname, ssn, budget);
-		user.menu();
-		input.close();
+		System.out.println("Are you here for a cancelation/reschedule");
+		String response = input.next();
+		
+		if(response.equals("yes")) {
+			Cancelation.reschedule(ssn);
+			System.exit(0);
+		}else {
+			System.out.println("Please enter your budget for your flight");
+			double budget = input.nextDouble();
+			
+			Person user = new Person(fname, lname, ssn, budget);
+			user.menu();
+			input.close();	
+		}
+		
 	}
 }

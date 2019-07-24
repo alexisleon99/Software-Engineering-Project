@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Cancelation {
+	static Scanner input = new Scanner(System.in);
 	
 
 	public static void cancel(String ssn) throws IOException {		
@@ -44,8 +45,8 @@ public class Cancelation {
 		      }
 	}
 	public static void reschedule(String ssn) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Hello you will now reschedule flights, now choose which airline to start");
+		String airline = input.next();
 	}
 
 }

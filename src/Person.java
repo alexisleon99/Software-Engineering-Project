@@ -67,9 +67,12 @@ public class Person {
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
 			
+			
+			
 			Flight order = new Flight(airline,fname,ssn,budget);
 			
-			order.search(airline);
+			order.lists(airline);
+			order.search();
 		}else if(response == 2){
 			System.out.println("Going to Cancel Reservation");
 			
