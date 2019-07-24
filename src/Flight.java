@@ -11,13 +11,14 @@ import java.util.Scanner;
  * @author Ajay Patel
  * @version Sprint_1
  */
-public class Flight {
+public class Flight extends Login {
+	
 	private Reservation Reservation;
 	String airline;
 	String fname;
 	String ssn;
 	double budget;
-	HashMap <String,Double> map = new HashMap();
+	
 	Scanner input = new Scanner(System.in);
 	/**
  * This constructs the Flight object with the airline, first name, SSN, and budget.
@@ -45,7 +46,7 @@ public class Flight {
 	
 	
 	
-	public void lists(String airline) {
+	public static void lists(String airline) {
 		
 		//HashMap <String,Double> map = new HashMap();
 		
@@ -56,7 +57,7 @@ public class Flight {
 			map.put("Miami", (double) 3200);
 			map.put("New York", (double) 3000);
 			map.put("Arizona", (double) 5000);	
-			System.out.println(map);
+			//System.out.println(map);
 		}else if(airline.equals("jetblue")){
 			map.put("Mexico", (double) 3500);
 			map.put("Canada", (double) 4500);

@@ -11,7 +11,7 @@ public class Cancelation {
 	
 
 	public static void cancel(String ssn) throws IOException {		
-		      File f1=new File("reservations.txt"); //Creation of File Descriptor for input file
+		      File f1=new File("reservations"+ssn+".txt"); //Creation of File Descriptor for input file
 		      String[] words=null;  //Intialize the word Array
 		      FileReader fr = new FileReader(f1);  //Creation of File Reader object
 		      BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
@@ -32,7 +32,7 @@ public class Cancelation {
 		      if(count!=0) {
 		        System.out.println("Ahh your SSN was found we will cancel per your request"); 
 		        System.out.println("Refund will begin soon, than you for your service"); 
-		 		String filename = "reservations.txt";
+		 		String filename = "reservations"+ssn+".txt";
 		 		PrintWriter outputStream = null;
 		 		outputStream = new PrintWriter(filename);
 		        outputStream.println("");

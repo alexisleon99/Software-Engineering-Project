@@ -1,3 +1,1 @@
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-6363      Jose         Austin         Q9    1993000.00
+

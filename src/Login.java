@@ -10,6 +10,7 @@ import java.util.*;
  */
 public class Login {
 	private Person Person;
+	static HashMap <String,Double> map = new HashMap();
 	/**
 	 * This is the main method where the user 
 	 * is prompted to enter some credentials needs for 
@@ -25,30 +26,34 @@ public class Login {
 		System.out.println("Enter First Name");
 		String fname = input.next();
 		
-		/*if() {
-			
-		}*/
-		
-		System.out.println("Enter last Name");
-		String lname = input.next();
-		
-		System.out.println("Enter SSN");
-		String ssn = input.next();
-		
-		System.out.println("Are you here for a cancelation/reschedule");
-		String response = input.next();
-		
-		if(response.equals("yes")) {
-			Cancelation.reschedule(ssn);
-			System.exit(0);
+		if(fname.equals("delta")|| fname.equals("jetblue")) {
+			Flight.lists(fname);
+			Airlines.list(map);
 		}else {
-			System.out.println("Please enter your budget for your flight");
-			double budget = input.nextDouble();
+			System.out.println("Enter last Name");
+			String lname = input.next();
 			
-			Person user = new Person(fname, lname, ssn, budget);
-			user.menu();
-			input.close();	
+			System.out.println("Enter SSN");
+			String ssn = input.next();
+			
+			System.out.println("Are you here for a cancelation/reschedule");
+			String response = input.next();
+			
+
+			if(response.equals("yes")) {
+				Cancelation.cancel(ssn);
+				System.exit(0);
+			}else {
+				System.out.println("Please enter your budget for your flight");
+				double budget = input.nextDouble();
+				
+				Person user = new Person(fname, lname, ssn, budget);
+				user.menu();
+				input.close();	
+			}	
 		}
+		
+		
 		
 	}
 }
