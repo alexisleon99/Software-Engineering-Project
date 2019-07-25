@@ -50,11 +50,14 @@ public class Flight extends Login {
 			System.out.println("How many companions will be accompanying you?");
 			int num = input.nextInt();
 			for(int i = 1;i<=num; i++) {
-				String companion = "companion";
+				String companion = "companion" + i;
 				String newSsn = ssn+i;
 				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,map);
 				ticket2.purchase(answer);
 			}
+		}
+		else {
+			System.out.println("No companions");
 		}
 	}
 	
