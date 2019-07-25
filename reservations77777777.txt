@@ -1,3 +1,0 @@
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-77777777  joe          Austin         U12   4996500.00

@@ -49,9 +49,9 @@ public class Flight extends Login {
 		if(answer2.equals("yes")) {
 			System.out.println("How many companions will be accompanying you?");
 			int num = input.nextInt();
-			for(int i = 0;i<num; i++) {
+			for(int i = 1;i<=num; i++) {
 				String companion = "companion";
-				String newSsn = ssn + 1;
+				String newSsn = ssn+i;
 				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,map);
 				ticket2.purchase(answer);
 			}
@@ -126,7 +126,7 @@ public class Flight extends Login {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			//this returns a double type, shouldn't it be a void method
 			ticket.purchase(answer);
-			//addCompanion(airline,budget,map,answer);
+			addCompanion(airline,budget,map,answer);
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");
 			System.exit(0);
