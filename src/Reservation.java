@@ -122,12 +122,5 @@ public class Reservation {
 		outputStream.printf("%-10s%-13s%-15s%1c%-5d%8.2f",ssn,fname,visit,row,number,balance);
 		outputStream.close();
 		
-		System.out.println("reservation was a success enjoy your flight");	
-		System.out.println("Would you like to add companions?");
-		System.out.println("1 - yes" + "\n2 - no");
-		String answer = input.next();
-		if(answer.equals("yes")) {
-			//call companion method which makes new tickets for companions.
-		}
 	}
 }

@@ -34,7 +34,7 @@ public class Seat {
 	 * @return 
 	 * @throws FileNotFoundException Throws an exeption if the file is not found
 	 */
-	public static String SeatClass(String visit) throws FileNotFoundException{
+	public String SeatClass(String visit) throws FileNotFoundException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
 		String type = seat.next();
