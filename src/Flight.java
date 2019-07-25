@@ -103,11 +103,11 @@ public class Flight extends Login {
 	public HashMap search() throws IOException {
 		
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
-		System.out.println("1 - Yes Reserve" + "\n2 - NO Just looking around");
+		System.out.println("1 - yes" + "\n2 - NO Just looking around");
 		
 		String answer = input.next();
 		
-		if(answer.equals("Yes Reserve")) {
+		if(answer.equals("yes")) {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			//this returns a double type, shouldn't it be a void method
 			ticket.purchase(answer);
