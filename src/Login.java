@@ -11,6 +11,8 @@ import java.util.*;
 public class Login {
 	private static Person Person;
 	static HashMap <String,Double> map = new HashMap();
+	static int [] capacity;
+	
 	/**
 	 * This is the main method where the user 
 	 * is prompted to enter some credentials needs for 
@@ -27,8 +29,18 @@ public class Login {
 		String fname = input.next();
 		
 		if(fname.equals("delta")|| fname.equals("jetblue")) {
-			Flight.lists(fname);
-			Airlines.list(map);
+			if(fname.equals("delta")) {
+				int [] capacity =  {525,220,300,450,200,350};	
+				Flight.lists(fname);
+				Airlines.list(map, capacity);
+			}else if(fname.equals("jetblue")) {
+				int [] capacity =  {450,370,175,350,445,350};	
+				Flight.lists(fname);
+				Airlines.list(map, capacity);
+			}
+			
+			
+			
 		}else {
 			System.out.println("Enter last Name");
 			String lname = input.next();

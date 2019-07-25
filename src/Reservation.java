@@ -115,7 +115,7 @@ public class Reservation {
 			e.printStackTrace();
 		}
 		
-		outputStream.println("***Reservation List***");
+		outputStream.println("***Reservation"+ ssn +"List***");
 		outputStream.printf("%-10s%-12s%-16s%4s%10s","SSN", "First Name", " Destination", "Seat", "Balance");
 		outputStream.println();
 		outputStream.printf("%-10s%-13s%-15s%1c%-5d%8.2f",ssn,fname,visit,row,number,balance);
