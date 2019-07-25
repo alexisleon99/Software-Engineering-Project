@@ -1,3 +1,0 @@
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-9999090   Jose         Austin         L55   49993000.00

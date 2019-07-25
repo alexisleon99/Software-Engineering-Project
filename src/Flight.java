@@ -41,7 +41,25 @@ public class Flight extends Login {
 	}*/
 	
 	
-	
+	public void addCompanion(String airlines,double budget,HashMap map,String answer) throws IOException {
+		System.out.println("reservation was a success enjoy your flight");	
+		System.out.println("Would you like to add companions?");
+		System.out.println("1 - yes" + "\n2 - no");
+		int answer2 = input.nextInt();
+		if(answer2 == 1) {
+			System.out.println("How many companions will be accompanying you?");
+			int num = input.nextInt();
+			for(int i = 1;i<=num; i++) {
+				String companion = "companion" + i;
+				String newSsn = ssn+i;
+				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,map);
+				ticket2.purchase(answer);
+			}
+		}
+		else {
+			System.out.println("No companions");
+		}
+	}
 	
 	
 	
@@ -111,6 +129,7 @@ public class Flight extends Login {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			//this returns a double type, shouldn't it be a void method
 			ticket.purchase(answer);
+			addCompanion(airline,budget,map,answer);
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");
 			System.exit(0);

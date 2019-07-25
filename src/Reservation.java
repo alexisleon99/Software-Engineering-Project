@@ -123,5 +123,6 @@ public class Reservation {
 		outputStream.close();
 		
 		System.out.println("reservation was a success enjoy your flight");	
+
 	}
 }
