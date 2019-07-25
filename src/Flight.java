@@ -45,8 +45,8 @@ public class Flight extends Login {
 		System.out.println("reservation was a success enjoy your flight");	
 		System.out.println("Would you like to add companions?");
 		System.out.println("1 - yes" + "\n2 - no");
-		String answer2 = input.next();
-		if(answer2.equals("yes")) {
+		int answer2 = input.nextInt();
+		if(answer2 == 1) {
 			System.out.println("How many companions will be accompanying you?");
 			int num = input.nextInt();
 			for(int i = 1;i<=num; i++) {
