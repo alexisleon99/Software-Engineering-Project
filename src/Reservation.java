@@ -107,6 +107,7 @@ public class Reservation {
 		CashCheck(cost,budget);
 		balance = budget - cost;
 		
+		
 		String filename = "reservations"+ssn+".txt";
 		PrintWriter outputStream = null;
 		try {
