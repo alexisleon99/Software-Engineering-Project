@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Login {
 	private static Person Person;
-	static HashMap <String,Double> map = new HashMap();
+	static HashMap <String,Double> locations = new HashMap();
 	static int [] capacity;
 	
 	/**
@@ -29,18 +29,15 @@ public class Login {
 		System.out.println("Please sign in");
 		System.out.println("Enter First Name");
 		String fname = input.next();
-		
-
-			if(fname.equals("delta")) {
-				int [] capacity =  {525,220,300,450,200,350};	
-				Flight.lists(fname);
-				Airlines.list(map, capacity);
-			}else if(fname.equals("jetblue")) {
-				int [] capacity =  {450,370,175,350,445,350};	
-				Flight.lists(fname);
-				Airlines.list(map, capacity);
+		if(fname.equals("delta")) {
+			int [] capacity =  {525,220,300,450,200,350};	
+			Flight.lists(fname);
+			Airlines.list(locations, capacity);
 			
-			
+		}else if(fname.equals("jetblue")) {
+			int [] capacity =  {450,370,175,350,445,350};	
+			Flight.lists(fname);
+			Airlines.list(locations, capacity);
 			
 		}else {
 			System.out.println("Enter last Name");
@@ -52,7 +49,6 @@ public class Login {
 			System.out.println("Are you here for a cancelation/reschedule");
 			String response = input.next();
 			
-
 			if(response.equals("yes")) {
 				int budget = 0;
 				Person user = new Person(fname, lname, ssn, budget);

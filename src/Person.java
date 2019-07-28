@@ -74,25 +74,24 @@ public class Person extends Login {
 				int [] capacity =  {525,220,300,450,200,350};	
 				Flight order = new Flight(airline,fname,ssn,budget);
 				order.lists(airline);
-				Airlines.list(map,capacity);
+				Airlines.list(locations,capacity);
 				order.search();
 			}else if(fname.equals("jetblue")) {
 				int [] capacity =  {450,370,175,350,445,350};
 				Flight order = new Flight(airline,fname,ssn,budget);
 				order.lists(airline);
-				Airlines.list(map,capacity);
+				Airlines.list(locations,capacity);
 			}
-			
-//System.out.println(capacity);
 			
 
 		}else if(response == 2){
 			System.out.println("Going to Cancel Reservation");
+			cancelMenu(ssn);
 			
 			//Cancelation.cancel(ssn);
 		}else if(response == 3){
 			System.out.println("Going to Reschedule Reservation");
-			//Cancelation.reschedule(ssn);
+			cancelMenu(ssn);
 		}else {
 			System.out.println("Command Not Recognized");
 			System.exit(0);
@@ -102,7 +101,7 @@ public class Person extends Login {
 	} 
 	
 
-	public void cancelMenu(String ssn) throws IOException {
+	public void cancelMenu(String ssn) throws IOException, ParseException {
 		System.out.println("Hello will you like to cancel or reschedule");
 		System.out.println("Type 'cancel' to cancel flight or Type 'reschedule'");
 		
@@ -110,6 +109,7 @@ public class Person extends Login {
 		
 		if(interaction.equals("cancel")){
 			Cancelation.cancel(ssn);
+			Cancelation.refund(ssn);
 		}else if(interaction.equals("reschedule")) {
 			Cancelation.reschedule(ssn);
 		}

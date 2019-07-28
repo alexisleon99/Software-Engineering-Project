@@ -40,17 +40,14 @@ public class Flight extends Login {
 		else 
 			return false;
 	}*/
-	
-	
 	public static void addCompanion(String airlines,double budget,HashMap map,String answer, double cost) throws IOException, ParseException {
 		System.out.println("reservation was a success enjoy your flight");	
 		System.out.println("Would you like to add companions?");
 		System.out.println("1 - yes" + "\n2 - no");
-		
 		int answer2 = input.nextInt();
+		
 	if(answer2 == 1) {
 			System.out.println("How many companions will be accompanying you?");
-			
 			int num = input.nextInt();
 			cost = cost * num;
 			Reservation.CashCheck(cost, budget);
@@ -66,38 +63,27 @@ public class Flight extends Login {
 			System.out.println("No companions");
 		}
 	}
-	
-	
-	
-	
 	public static void lists(String airline) {
 		if(airline.equals("delta")) {
-			map.put("Austin", (double) 3500);
-			map.put("Portland", (double) 4500);
-			map.put("Chicago", (double) 3800);
-			map.put("Miami", (double) 3200);
-			map.put("New York", (double) 3000);
-			map.put("Arizona", (double) 5000);	
+			locations.put("Austin", (double) 3500);
+			locations.put("Portland", (double) 4500);
+			locations.put("Chicago", (double) 3800);
+			locations.put("Miami", (double) 3200);
+			locations.put("New York", (double) 3000);
+			locations.put("Arizona", (double) 5000);	
 		}else if(airline.equals("jetblue")){
-			map.put("Mexico", (double) 3500);
-			map.put("Canada", (double) 4500);
-			map.put("Bali", (double) 3800);
-			map.put("Japan", (double) 3200);
-			map.put("Brazil", (double) 3000);
-			map.put("United Kingdom", (double) 5000);
+			locations.put("Mexico", (double) 3500);
+			locations.put("Canada", (double) 4500);
+			locations.put("Bali", (double) 3800);
+			locations.put("Japan", (double) 3200);
+			locations.put("Brazil", (double) 3000);
+			locations.put("United Kingdom", (double) 5000);
 		}else {
 			System.out.println("Airline not with airport");
 			System.exit(0);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	/**
 	 * <p>
 	 * This search method allows the person to search the different flights
@@ -120,7 +106,7 @@ public class Flight extends Login {
 	 * @throws IOException Used in case of the an IO error and is handled to allow program form crashing.
 	 * @throws ParseException 
 	 */
-	public HashMap search() throws IOException, ParseException {
+	public void search() throws IOException, ParseException {
 		
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
 		System.out.println("1 - yes" + "\n2 - NO Just looking around");
@@ -128,7 +114,7 @@ public class Flight extends Login {
 		String answer = input.next();
 		
 		if(answer.equals("yes")) {
-			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
+			Reservation ticket = new Reservation(airline,fname,ssn, budget,locations); 
 			ticket.purchase(answer);
 			
 		}else {
@@ -136,7 +122,7 @@ public class Flight extends Login {
 			System.exit(0);
 		}
 		input.close();
-		return map;
+		//return map;
 	}	
 }
 

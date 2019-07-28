@@ -62,7 +62,6 @@ public class Reservation {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
 		}
-		
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
@@ -118,9 +117,6 @@ public class Reservation {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		
-		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 		System.out.println();
 		
 		SimpleDateFormat dateformat2 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
@@ -132,31 +128,17 @@ public class Reservation {
             e.printStackTrace();
         }
 		outputStream.println("***Reservation"+ ssn +"List***");
-		outputStream.printf("%-10s%-12s%-16s%4s%10s%20s","SSN", "First Name", " Destination", "Seat", "Cost", "Departure");
+		//outputStream.printf("%-10s%-12s%-16s%4s%10s%20s","SSN", "First Name", " Destination", "Seat", "Cost", "Departure");
+		outputStream.println("SSN\t" + "First Name\t" + "Destination\t" + "Seat\t" + "Cost\t" + "Departure");
 		outputStream.println();
-		outputStream.printf("%-10s%-13s%-15s%1c%-5d$%-8.2f%20s",ssn,fname,visit,row,number,cost,departure);
-		
-		
-		if(fname.contains("companion")) {
-			
-		}else {
-		/*	System.out.println("Would you like to add companions? if so how many");
-			System.out.println("Simply enter 0 to terminate");
-			int companionNum = input.nextInt();
-			if(companionNum == 0) {
-				System.out.println("Goodbye user and have a safe trip");
-				System.exit(0);
-			}*/
-			//System.out.println();
-			
-				//System.out.println("Remaining budget is " + budget);
-				Flight.addCompanion(airline,budget,map, answer,cost);		
+		outputStream.println(ssn + "\t" + fname + "\t" +visit + "\t" + row + number + "\t" + "$\t" + cost + "\t" + departure );
+		//outputStream.printf("%-10s%-13s%-15s%1c%-5d$%-8.2f%20s",ssn,fname,visit,row,number,cost,departure);
 
-			
+		if(fname.contains("companion")) {
+		}else {
+			Flight.addCompanion(airline,budget,map, answer,cost);
 		}
-		
 		outputStream.close();
 		System.out.println("Goodbye Have a Safe Trip");
-
 	}
 }
