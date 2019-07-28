@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Random;
 import java.util.Scanner;
 /**
@@ -35,8 +36,9 @@ public class Seat {
 	 * @param answer 
 	 * @return 
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
-	public String SeatClass(String visit, String answer) throws IOException{
+	public String SeatClass(String visit, String answer) throws IOException, ParseException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
 		String type = seat.next();
@@ -61,8 +63,9 @@ public class Seat {
 	 * </p>
 	 * @param answer 
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
-	public static void SeatChart(double cost,String visit, String answer) throws IOException {
+	public static void SeatChart(double cost,String visit, String answer) throws IOException, ParseException {
 		Random r = new Random();
 		int letter = r.nextInt(90 - 65) + 65;
 		char row = (char)letter;

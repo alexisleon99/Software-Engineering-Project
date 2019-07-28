@@ -1,5 +1,9 @@
 import java.io.*;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 /**
  *  * This class implements a simple object of Reservation.
@@ -45,8 +49,9 @@ public class Reservation {
 	 *</p>
 	 * @return 
 	 * @throws IOException throws the exception when the input is failed to be interpreted
+	 * @throws java.text.ParseException 
 	 */
-	public static double purchase(String answer) throws IOException {
+	public static void purchase(String answer) throws IOException, java.text.ParseException {
 		//why is this double?
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
@@ -61,10 +66,9 @@ public class Reservation {
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
-			type.SeatClass(visit,answer);	
-			return cost;
-		}else {
-		return 0;
+			type.SeatClass(visit,answer);
+		}
+		else {
 		}
 		
 	}
@@ -83,7 +87,6 @@ public class Reservation {
 		double balance = budget - cost;
 		System.out.println("Your Budget is " + budget);
 		System.out.println("Flight Cost is " + cost);
-
 		if(balance < 0.0) {
 			System.out.println("Sorry sir/mam you do not have sufficient funds");
 			System.exit(0);
@@ -103,8 +106,9 @@ public class Reservation {
 	 * @param visit This is the location of their visit.
 	 * @param answer 
 	 * @throws IOException 
+	 * @throws java.text.ParseException 
 	 */
-	public static void FinalizePurchase(double cost, char row, int number, String visit, String answer) throws IOException{
+	public static void FinalizePurchase(double cost, char row, int number, String visit, String answer) throws IOException, java.text.ParseException{
 		CashCheck(cost,budget);
 		budget = budget - cost;
 		String filename = "reservations"+ssn+".txt";
@@ -115,13 +119,25 @@ public class Reservation {
 			e.printStackTrace();
 		}
 		
+		
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		System.out.println();
+		
+		SimpleDateFormat dateformat2 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        System.out.println("Enter in departure in this format dd-M-yyyy hh:mm:ss");
+        String departure = input.nextLine();
+        try {
+            Date newdate = dateformat2.parse(departure);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 		outputStream.println("***Reservation"+ ssn +"List***");
-		outputStream.printf("%-10s%-12s%-16s%4s%10s","SSN", "First Name", " Destination", "Seat", "Balance");
+		outputStream.printf("%-10s%-12s%-16s%4s%10s%20s","SSN", "First Name", " Destination", "Seat", "Cost", "Departure");
 		outputStream.println();
-		outputStream.printf("%-10s%-13s%-15s%1c%-5d%8.2f",ssn,fname,visit,row,number,budget);
+		outputStream.printf("%-10s%-13s%-15s%1c%-5d$%-8.2f%20s",ssn,fname,visit,row,number,cost,departure);
 		
 		
-		if(fname.equals("companion1") || fname.equals("companion2")) {
+		if(fname.contains("companion")) {
 			
 		}else {
 		/*	System.out.println("Would you like to add companions? if so how many");

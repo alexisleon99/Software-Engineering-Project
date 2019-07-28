@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 /**
  * This class implements a simple object of person.
@@ -54,8 +55,9 @@ public class Person extends Login {
 	 * find/search/purchase his/her flights
 	 * @return 
 	 * @throws IOException Throw a IO exception if the input our output fails
+	 * @throws ParseException 
 	 */
-	public int menu () throws IOException {
+	public int menu () throws IOException, ParseException {
 		
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation" + "\n3 - Reschedule");
@@ -68,12 +70,21 @@ public class Person extends Login {
 			System.out.println("Search for airline");
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
-			Flight order = new Flight(airline,fname,ssn,budget);
-			order.lists(airline);
-
-			Airlines.list(map,capacity);
-
-			order.search();
+			if(airline.equals("delta")) {
+				int [] capacity =  {525,220,300,450,200,350};	
+				Flight order = new Flight(airline,fname,ssn,budget);
+				order.lists(airline);
+				Airlines.list(map,capacity);
+				order.search();
+			}else if(fname.equals("jetblue")) {
+				int [] capacity =  {450,370,175,350,445,350};
+				Flight order = new Flight(airline,fname,ssn,budget);
+				order.lists(airline);
+				Airlines.list(map,capacity);
+			}
+			
+//System.out.println(capacity);
+			
 
 		}else if(response == 2){
 			System.out.println("Going to Cancel Reservation");

@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Scanner;
 /**
@@ -41,7 +42,7 @@ public class Flight extends Login {
 	}*/
 	
 	
-	public static void addCompanion(String airlines,double budget,HashMap map,String answer, double cost) throws IOException {
+	public static void addCompanion(String airlines,double budget,HashMap map,String answer, double cost) throws IOException, ParseException {
 		System.out.println("reservation was a success enjoy your flight");	
 		System.out.println("Would you like to add companions?");
 		System.out.println("1 - yes" + "\n2 - no");
@@ -117,8 +118,9 @@ public class Flight extends Login {
 	 * 
 	 * 
 	 * @throws IOException Used in case of the an IO error and is handled to allow program form crashing.
+	 * @throws ParseException 
 	 */
-	public HashMap search() throws IOException {
+	public HashMap search() throws IOException, ParseException {
 		
 		System.out.println("Will you like to purchase a reservation to one of these destinations?");
 		System.out.println("1 - yes" + "\n2 - NO Just looking around");
@@ -127,17 +129,14 @@ public class Flight extends Login {
 		
 		if(answer.equals("yes")) {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
-			//this returns a double type, shouldn't it be a void method
 			ticket.purchase(answer);
 			
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");
 			System.exit(0);
 		}
-		
 		input.close();
 		return map;
-
 	}	
 }
 

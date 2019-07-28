@@ -1,0 +1,3 @@
+***Reservation16List***
+SSN       First Name   Destination    Seat   Balance
+16        own          Austin         J48   $ 7000.00

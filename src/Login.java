@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 /**
  * This is the actor/class where the program begins
@@ -19,8 +20,9 @@ public class Login {
 	 * his/her flight reservation
 	 * @param args Simply the arguments line
 	 * @throws IOException An exception that is thrown
+	 * @throws ParseException 
 	 */
-	public static void main(String[] args) throws IOException {	
+	public static void main(String[] args) throws IOException, ParseException {	
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Hello welcome to Atlanta International Airport");
@@ -28,7 +30,7 @@ public class Login {
 		System.out.println("Enter First Name");
 		String fname = input.next();
 		
-		if(fname.equals("delta")|| fname.equals("jetblue")) {
+
 			if(fname.equals("delta")) {
 				int [] capacity =  {525,220,300,450,200,350};	
 				Flight.lists(fname);
@@ -37,7 +39,6 @@ public class Login {
 				int [] capacity =  {450,370,175,350,445,350};	
 				Flight.lists(fname);
 				Airlines.list(map, capacity);
-			}
 			
 			
 			
@@ -62,6 +63,7 @@ public class Login {
 				System.out.println("Please enter your budget for your flight");
 				double budget = input.nextDouble();
 				Person user = new Person(fname, lname, ssn, budget);
+				System.out.println();
 				user.menu();
 				input.close();	
 			}	
