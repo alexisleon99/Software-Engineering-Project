@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 /**
  * This class implements a simple flight object which is used to search and 
@@ -19,6 +20,7 @@ public class Flight extends Login {
 	String fname;
 	static String ssn;
 	double budget;
+	private List<Reservation> reserves;
 	
 	static Scanner input = new Scanner(System.in);
 	/**

@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
-public class Cancelation {
+public class Cancelation extends Login {
 	static Scanner input = new Scanner(System.in);
 	public static void cancel(String ssn) throws IOException {
 		File f1=new File("reservations"+ssn+".txt");

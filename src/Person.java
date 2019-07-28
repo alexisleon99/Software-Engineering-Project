@@ -20,6 +20,7 @@ public class Person extends Login {
 	String fname,lname,ssn;
 	//int birthDay;
 	double budget;  
+	private List<Flight> flights;
 	Scanner input = new Scanner(System.in);
 	/**
 	 * Constructor that constructs the person object
