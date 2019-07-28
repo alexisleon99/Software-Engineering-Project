@@ -38,6 +38,7 @@ public class Seat {
 	 * @throws IOException 
 	 * @throws ParseException 
 	 */
+	
 	public String SeatClass(String visit, String answer) throws IOException, ParseException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");

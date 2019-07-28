@@ -98,12 +98,13 @@ public class Reservation {
 	 * <p>
 	 * It created a txt document called reservations with some of the users information.
 	 * This serves as the users receipt/ticket for their flight.
+	 * At the end of the proccess the user has the option to add companions to go with him/her
 	 * </p>
 	 * @param cost This is the total cost of the flight.
 	 * @param row This is the Letter that will be given to the user to find their seat.
 	 * @param number Along with row this helps the user find their seat.
 	 * @param visit This is the location of their visit.
-	 * @param answer 
+	 * @param answer This is what passes to the addCompanion method it the users desired location
 	 * @throws IOException 
 	 * @throws java.text.ParseException 
 	 */

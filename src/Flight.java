@@ -36,19 +36,26 @@ public class Flight extends Login {
 		this.ssn = ssn;	
 		this.budget = budget;
 	}
-	/*public boolean equals(Flight obj) {
-		if(this == obj)
-		return true;
-		else 
-			return false;
-	}*/
-	public static void addCompanion(String airlines,double budget,HashMap map,String answer, double cost) throws IOException, ParseException {
+
+	/**
+	 * This Method adds a number of companions to the person in order to go on a flight.
+	 *  
+	 * 
+	 * @param airlines Is the airline in which has been chosen
+	 * @param budget Is the Budget that person/user has
+	 * @param locations The Destinations they may go
+	 * @param answer The Chosen Destination
+	 * @param cost The Price of their flight 
+	 * @throws IOException
+	 * @throws ParseException
+	 */
+	public static void addCompanion(String airlines,double budget,HashMap locations,String answer, double cost) throws IOException, ParseException {
 		System.out.println("reservation was a success enjoy your flight");	
 		System.out.println("Would you like to add companions?");
 		System.out.println("1 - yes" + "\n2 - no");
 		int answer2 = input.nextInt();
 		
-	if(answer2 == 1) {
+		if(answer2 == 1) {
 			System.out.println("How many companions will be accompanying you?");
 			int num = input.nextInt();
 			cost = cost * num;
@@ -57,7 +64,7 @@ public class Flight extends Login {
 				System.out.println("current bduegt is "+ budget);
 				String companion = "companion" + i;
 				String newSsn = ssn+i;
-				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,map);
+				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,locations);
 				ticket2.purchase(answer);
 			}
 		}
@@ -65,6 +72,11 @@ public class Flight extends Login {
 			System.out.println("No companions");
 		}
 	}
+	
+	/**
+	 * This method only adds the flights to the designated airline(Data Structure)
+	 * @param airline
+	 */
 	public static void lists(String airline) {
 		if(airline.equals("delta")) {
 			locations.put("Austin", (double) 3500);
