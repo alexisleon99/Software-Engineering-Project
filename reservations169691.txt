@@ -1,0 +1,3 @@
+***Reservation List***
+SSN       First Name   Destination    Seat   Balance
+169691    companion1   Austin         K55       0.00

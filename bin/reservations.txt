@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-111111111 Alexis       Austin         Q74    3000.00
-=======
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-null      null         Austin         T55    3000.00
->>>>>>> Delgado_3
