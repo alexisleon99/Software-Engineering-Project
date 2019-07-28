@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 /**
@@ -31,21 +32,22 @@ public class Seat {
 	 * @param cost This is the cost of the flight that was chosen by the person to the certain
 	 * Destination.
 	 * @param visit This is the destination that was chosen.
+	 * @param answer 
 	 * @return 
-	 * @throws FileNotFoundException Throws an exeption if the file is not found
+	 * @throws IOException 
 	 */
-	public String SeatClass(String visit) throws FileNotFoundException{
+	public String SeatClass(String visit, String answer) throws IOException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
 		String type = seat.next();
 		if(type.equals("First")) {
 			cost = cost * 2;
-			SeatChart(cost,visit);
+			SeatChart(cost,visit,answer);
 		}else if(type.equals("Business")) {
 			cost = cost * 1.5;
-			SeatChart(cost,visit);
+			SeatChart(cost,visit,answer);
 		}else if(type.equals("Economy")) {
-			SeatChart(cost,visit);			
+			SeatChart(cost,visit,answer);			
 		}
 		return type;
 	}
@@ -57,13 +59,14 @@ public class Seat {
 	 * once the row and seat letter has been generated it will call the last method the 
 	 * FinalizePurchase method
 	 * </p>
-	 * @throws FileNotFoundException Throws the exception if the file is not found.
+	 * @param answer 
+	 * @throws IOException 
 	 */
-	public static void SeatChart(double cost,String visit) throws FileNotFoundException {
+	public static void SeatChart(double cost,String visit, String answer) throws IOException {
 		Random r = new Random();
 		int letter = r.nextInt(90 - 65) + 65;
 		char row = (char)letter;
 		int number = r.nextInt(100);
-		Reservation.FinalizePurchase(cost, row, number,visit);
+		Reservation.FinalizePurchase(cost, row, number,visit,answer);
 	}
 }

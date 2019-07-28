@@ -13,13 +13,13 @@ import java.util.Scanner;
  */
 public class Flight extends Login {
 	
-	private Reservation Reservation;
-	String airline;
+	private static Reservation Reservation;
+	static String airline;
 	String fname;
-	String ssn;
+	static String ssn;
 	double budget;
 	
-	Scanner input = new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
 	/**
  * This constructs the Flight object with the airline, first name, SSN, and budget.
  * @param airline This is the airline from which the flight is being chosen from.
@@ -41,15 +41,20 @@ public class Flight extends Login {
 	}*/
 	
 	
-	public void addCompanion(String airlines,double budget,HashMap map,String answer) throws IOException {
+	public static void addCompanion(String airlines,double budget,HashMap map,String answer, double cost) throws IOException {
 		System.out.println("reservation was a success enjoy your flight");	
 		System.out.println("Would you like to add companions?");
 		System.out.println("1 - yes" + "\n2 - no");
+		
 		int answer2 = input.nextInt();
-		if(answer2 == 1) {
+	if(answer2 == 1) {
 			System.out.println("How many companions will be accompanying you?");
+			
 			int num = input.nextInt();
+			cost = cost * num;
+			Reservation.CashCheck(cost, budget);
 			for(int i = 1;i<=num; i++) {
+				System.out.println("current bduegt is "+ budget);
 				String companion = "companion" + i;
 				String newSsn = ssn+i;
 				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,map);
@@ -129,7 +134,7 @@ public class Flight extends Login {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,map); 
 			//this returns a double type, shouldn't it be a void method
 			ticket.purchase(answer);
-			addCompanion(airline,budget,map,answer);
+			
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");
 			System.exit(0);

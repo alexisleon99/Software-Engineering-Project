@@ -46,14 +46,14 @@ public class Reservation {
 	 * @return 
 	 * @throws IOException throws the exception when the input is failed to be interpreted
 	 */
-	public static double purchase(String string) throws IOException {
+	public static double purchase(String answer) throws IOException {
 		//why is this double?
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
 		System.out.println("Choose which location you will like to visit");
 		String visit = input.nextLine();
 		
-		if(string.equals(visit)) {
+		if(answer.equals(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
 		}
@@ -61,7 +61,7 @@ public class Reservation {
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
-			type.SeatClass(visit);	
+			type.SeatClass(visit,answer);	
 			return cost;
 		}else {
 		return 0;
@@ -84,7 +84,7 @@ public class Reservation {
 		System.out.println("Your Budget is " + budget);
 		System.out.println("Flight Cost is " + cost);
 
-		if(balance < 0) {
+		if(balance < 0.0) {
 			System.out.println("Sorry sir/mam you do not have sufficient funds");
 			System.exit(0);
 		}
@@ -101,13 +101,13 @@ public class Reservation {
 	 * @param row This is the Letter that will be given to the user to find their seat.
 	 * @param number Along with row this helps the user find their seat.
 	 * @param visit This is the location of their visit.
+	 * @param answer 
+	 * @throws IOException 
 	 */
-	public static void FinalizePurchase(double cost, char row, int number, String visit){
-
-		double balance;
+	public static void FinalizePurchase(double cost, char row, int number, String visit, String answer) throws IOException{
 		CashCheck(cost,budget);
-		balance = budget - cost;
-		
+		budget = budget - cost;
+
 		String filename = "reservations"+ssn+".txt";
 		PrintWriter outputStream = null;
 		try {
@@ -119,10 +119,29 @@ public class Reservation {
 		outputStream.println("***Reservation List***");
 		outputStream.printf("%-10s%-12s%-16s%4s%10s","SSN", "First Name", " Destination", "Seat", "Balance");
 		outputStream.println();
-		outputStream.printf("%-10s%-13s%-15s%1c%-5d%8.2f",ssn,fname,visit,row,number,balance);
-		outputStream.close();
+		outputStream.printf("%-10s%-13s%-15s%1c%-5d%8.2f",ssn,fname,visit,row,number,budget);
 		
-		System.out.println("reservation was a success enjoy your flight");	
+		
+		if(fname.equals("companion1") || fname.equals("companion2")) {
+			
+		}else {
+		/*	System.out.println("Would you like to add companions? if so how many");
+			System.out.println("Simply enter 0 to terminate");
+			int companionNum = input.nextInt();
+			if(companionNum == 0) {
+				System.out.println("Goodbye user and have a safe trip");
+				System.exit(0);
+			}*/
+			//System.out.println();
+			
+				//System.out.println("Remaining budget is " + budget);
+				Flight.addCompanion(airline,budget,map, answer,cost);		
+
+			
+		}
+		
+		outputStream.close();
+		System.out.println("Goodbye Have a Safe Trip");
 
 	}
 }
