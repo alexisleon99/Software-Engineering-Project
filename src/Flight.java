@@ -21,7 +21,6 @@ public class Flight extends Login {
 	static String ssn;
 	double budget;
 	private List<Reservation> reserves;
-	
 	static Scanner input = new Scanner(System.in);
 	/**
  * This constructs the Flight object with the airline, first name, SSN, and budget.
