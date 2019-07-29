@@ -1,3 +1,0 @@
-***Reservation69List***
-SSN       First Name   Destination    Seat      Cost
-69        hugh         Austin         Q54   $7000.00 

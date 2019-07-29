@@ -127,7 +127,7 @@ public class Reservation {
             Date newdate = dateformat2.parse(departure);
         } catch (ParseException e) {
             e.printStackTrace();
-        }
+       }
 		outputStream.println("***Reservation"+ ssn +"List***");
 		//outputStream.printf("%-10s%-12s%-16s%4s%10s%20s","SSN", "First Name", " Destination", "Seat", "Cost", "Departure");
 		outputStream.println("SSN\t" + "First Name\t" + "Destination\t" + "Seat\t" + "Cost\t" + "Departure");
