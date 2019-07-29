@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
-/*class FlightTest {
+class FlightTest {
 	@Test
 	void testSearch() throws IOException {
 		Flight flight = new Flight("delta", null, null, 10000.0); 
@@ -18,10 +18,10 @@ import org.junit.jupiter.api.Test;
 		expected.put("New York", (double) 3000);
 		expected.put("Arizona", (double) 5000);			
 		HashMap actual = flight.search("delta");
-		/*
+		
 		ReservationTest rt = new ReservationTest();
 		rt.testpurchase();
 		
 		assertEquals(expected,actual);
-	}*/
-//}
+	}
+}
