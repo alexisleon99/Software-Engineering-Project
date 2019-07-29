@@ -15,12 +15,12 @@ import java.util.Scanner;
  */
 public class Flight extends Login {
 	
-	private static Reservation Reservation;
+	//private static Reservation Reservation;
 	static String airline;
 	String fname;
 	static String ssn;
 	double budget;
-	private List<Reservation> reserves;
+	private List<Reservation> reservations;
 	static Scanner input = new Scanner(System.in);
 	/**
  * This constructs the Flight object with the airline, first name, SSN, and budget.
@@ -75,8 +75,9 @@ public class Flight extends Login {
 	/**
 	 * This method only adds the flights to the designated airline(Data Structure)
 	 * @param airline
+	 * @return 
 	 */
-	public static void lists(String airline) {
+	public static HashMap lists(String airline) {
 		if(airline.equals("delta")) {
 			locations.put("Austin", (double) 3500);
 			locations.put("Portland", (double) 4500);
@@ -91,10 +92,12 @@ public class Flight extends Login {
 			locations.put("Japan", (double) 3200);
 			locations.put("Brazil", (double) 3000);
 			locations.put("United Kingdom", (double) 5000);
+
 		}else {
 			System.out.println("Airline not with airport");
 			System.exit(0);
 		}
+		return locations;//needed return statement in order for testing
 	}
 
 	/**

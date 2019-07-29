@@ -82,7 +82,7 @@ public class Cancelation extends Login {
 		BufferedReader br = new BufferedReader(fr);
 		String s;
 		while((s=br.readLine())!=null){
-			words=s.split("\t");
+			words=s.split(" ");
 			for(int i = 0; i < words.length;i++) {
 				if(words[i].equals("$")) {
 					String refund = words[i+1];

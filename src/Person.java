@@ -16,9 +16,11 @@ import java.util.*;
 
 public class Person extends Login {
 
-	private Flight Flight;
+	//private Flight Flight;
 	String fname,lname,ssn;
 	//int birthDay;
+	private Cancelation cancel;
+	private List<Companion> companions;
 	double budget;  
 	private List<Flight> flights;
 	Scanner input = new Scanner(System.in);
