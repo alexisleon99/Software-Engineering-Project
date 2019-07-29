@@ -15,16 +15,15 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 public class Cancelation extends Login {
 	static Scanner input = new Scanner(System.in);
 	public static void cancel(String ssn) throws IOException {
-		File f1=new File("reservations"+ssn+".txt");
+		File f1 = new File("reservations"+ssn+".txt");
 		String[] words=null;
 		FileReader fr = new FileReader(f1);
 		BufferedReader br = new BufferedReader(fr);
 		String s;     
-		String input=ssn;
+		String input = ssn;
 		int count=0;
 		while((s=br.readLine())!=null){
-			words=s.split("\t");
-		    //words=s.split(" "); 
+			words=s.split("\t"); 
 		    for (String word : words) {
 		    	if (word.equals(input)) {
 		    		count++;

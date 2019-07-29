@@ -3,7 +3,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+//import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 /**
  *  * This class implements a simple object of Reservation.
@@ -123,11 +123,11 @@ public class Reservation {
 		SimpleDateFormat dateformat2 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         System.out.println("Enter in departure in this format dd-M-yyyy hh:mm:ss");
         String departure = input.nextLine();
-        try {
+       /// try {
             Date newdate = dateformat2.parse(departure);
-        } catch (ParseException e) {
-            e.printStackTrace();
-       }
+        //} catch (ParseException e) {
+          //  e.printStackTrace();
+       //}
 		outputStream.println("***Reservation"+ ssn +"List***");
 		//outputStream.printf("%-10s%-12s%-16s%4s%10s%20s","SSN", "First Name", " Destination", "Seat", "Cost", "Departure");
 		outputStream.println("SSN\t" + "First Name\t" + "Destination\t" + "Seat\t" + "Cost\t" + "Departure");

@@ -1,27 +1,22 @@
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
-/*class FlightTest {
+class FlightTest {
+
 	@Test
-	void testSearch() throws IOException {
-		Flight flight = new Flight("delta", null, null, 10000.0); 
-		HashMap <String,Double> expected = new HashMap();
-		expected.put("Austin", (double) 3500);
-		expected.put("Portland", (double) 4500);
-		expected.put("Chicago", (double) 3800);
-		expected.put("Miami", (double) 3200);
-		expected.put("New York", (double) 3000);
-		expected.put("Arizona", (double) 5000);			
-		HashMap actual = flight.search("delta");
-		/*
-		ReservationTest rt = new ReservationTest();
-		rt.testpurchase();
+	void testlists() throws IOException, ParseException {
+		Flight p1 = new Flight("delta", "alex","123456789",10000);
+		String airline = "delta", answer = "yes";
+		double budget = 10000,cost =7000; 
+		HashMap locations = new HashMap();
+		p1.addCompanion(airline,budget,locations,answer,cost);
+		//lists("delta");
 		
-		assertEquals(expected,actual);
-	}*/
-//}
+	}
+
+}
