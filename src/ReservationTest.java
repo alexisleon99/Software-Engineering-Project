@@ -40,10 +40,9 @@ class ReservationTest {
 	@Test
 	void testFinalizePurchase() throws IOException, ParseException {
 		testCashCheck();
-		double cost = 7000.0;
 		double budget = 10000.0;
 		String ssn = "123456789";
-		String expected= "reservations"+"123456789"+".txt";
+		String expected= "reservations" + "123456789" + ".txt";
 		
 		Reservation fp = new Reservation(" ", " ", ssn, budget, null);
 		String actual = fp.FinalizePurchase(0.0, 'a', 2, "Austin", "yes", ssn);

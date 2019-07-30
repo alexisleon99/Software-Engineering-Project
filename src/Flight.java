@@ -37,7 +37,13 @@ public class Flight extends Login {
 	}
 
 	/**
-	 * This Method adds a number of companions to the person in order to go on a flight.
+	 * This Method adds a number of companions to the person in order to go on a flight. Along with 
+	 * adding companions to person this method will create tickets for each new companion.
+	 * 
+	 * <p> 
+	 * with each new companion budget from the original person will be decreased and will be checked 
+	 * to see if the person has enough money left over to book their companions flight.
+	 * </p>
 	 *  
 	 * 
 	 * @param airlines Is the airline in which has been chosen
@@ -47,6 +53,8 @@ public class Flight extends Login {
 	 * @param cost The Price of their flight 
 	 * @throws IOException
 	 * @throws ParseException
+	 * 
+	 * @see Reservations 
 	 */
 	public static void addCompanion(String airlines,double budget,HashMap locations,String answer, double cost) throws IOException, ParseException {
 		System.out.println("reservation was a success enjoy your flight");	
@@ -59,10 +67,10 @@ public class Flight extends Login {
 			int num = input.nextInt();
 			cost = cost * num;
 			Reservation.CashCheck(cost, budget);
-			for(int i = 1;i<=num; i++) {
-				System.out.println("current budget is "+ budget);
+			for(int i = 1;i <= num; i++) {
+				System.out.println("current budget is " + budget);
 				String companion = "companion" + i;
-				String newSsn = ssn+i;
+				String newSsn = ssn + i;
 				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,locations);
 				ticket2.purchase(answer,newSsn);
 			}
@@ -74,8 +82,9 @@ public class Flight extends Login {
 	
 	/**
 	 * This method only adds the flights to the designated airline(Data Structure)
-	 * @param airline
-	 * @return 
+	 * @param airline is the string argument given to the method in order to select which data
+	 * is entered into the data structure.
+	 * @return A HashMap with the resulting data according to the argument given to the method.
 	 */
 	public static HashMap lists(String airline) {
 		if(airline.equals("delta")) {
@@ -109,12 +118,12 @@ public class Flight extends Login {
 	 * If the person asks for an airline that is not part of the airport a message will be printed
 	 * out stating this fact.
 	 * <p>
-	 * once the person has choosen an airline and looked at the available flight, they will be asked to 
+	 * once the person has chosen an airline and looked at the available flight, they will be asked to 
 	 * make a reservation or just say that they are looking around.
 	 * </p>
 	 * <p>
 	 * If person chooses to make a reservation, the search method will create an object of reservation 
-	 * using the airline, first name, ssn, budget, and the map data structure for tickets
+	 * using the airline, first name, SSN, budget, and the map data structure for tickets
 	 * </p>
 	 * @return 
 	 * 
@@ -138,7 +147,6 @@ public class Flight extends Login {
 			System.exit(0);
 		}
 		input.close();
-		//return map;
 	}	
 }
 

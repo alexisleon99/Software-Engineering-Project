@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 /**
- * This Class allows the cancelation or refund for a person/companions ticket/reservation.
+ * This Class allows the cancellation or refund for a person/companions ticket/reservation.
  * 
  * @author Jose Delgado
  * @author Alexis Leon
@@ -26,7 +26,7 @@ public class Cancelation extends Login {
 	}
 
 	/**
-	 * In this specfic method we find a reservation ticket and clear it out.
+	 * In this specific method we find a reservation ticket and clear it out.
 	 * <p>
 	 * Once the the reservation ticket has been cleared, another method is called, the refund method.
 	 * </p>
@@ -35,16 +35,16 @@ public class Cancelation extends Login {
 	 * @throws IOException an exception is thrown if there is a problem with the input.
 	 */
 	public static String cancel(String ssn) throws IOException {
-		File f1=new File("reservations"+ssn+".txt");
+		File f1 = new File("reservations" + ssn + ".txt");
 		String filename = f1.toString();
-		String[] words=null;
+		String[] words = null;
 		FileReader fr = new FileReader(f1);
 		BufferedReader br = new BufferedReader(fr);
 		String s;     
 		String input = ssn;
 		int count=0;
-		while((s=br.readLine())!=null){
-			words=s.split("\t"); 
+		while((s = br.readLine()) != null){
+			words = s.split("\t"); 
 		    for (String word : words) {
 		    	if (word.equals(input)) {
 		    		count++;
@@ -73,7 +73,7 @@ public class Cancelation extends Login {
 	 * @throws IOException an exception is thrown if there is a problem with the input.
 	 */
 	public static String reschedule(String ssn) throws java.text.ParseException, IOException {
-		File fileToBeModified = new File("reservations"+ssn+".txt");
+		File fileToBeModified = new File("reservations" + ssn + ".txt");
 		String filename = fileToBeModified.toString();
 	    String oldContent = "";
 	    BufferedReader reader = null;

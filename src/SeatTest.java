@@ -11,7 +11,7 @@ class SeatTest {
 
 	@Test
 	void testSeatClass() throws IOException, ParseException {
-		Double expectedResponse = 0.0;//create an expected putput
+		Double expectedResponse = 0.0;//create an expected output
 		Seat chair = new Seat(0,"Austin" );
 		
 		double actual = Seat.SeatClass("Austin", "Austin","123456789");
@@ -20,7 +20,7 @@ class SeatTest {
 		
 	}
 
-	//Dont know how to test this accuratly as it generates random numbers and characters
+	//Don't know how to test this accurately as it generates random numbers and characters
 	@Test
 	void testSeatChart() {
 		

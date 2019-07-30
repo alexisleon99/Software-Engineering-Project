@@ -1,1 +1,4 @@
+***Reservation123456789List***
+SSN			First Name	Destination	  Seat			Cost		Departure
 
+123456789		 		Austin		a2		 $ 0.0	 05-16-1994 05:00:00
