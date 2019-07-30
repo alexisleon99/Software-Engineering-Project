@@ -122,41 +122,45 @@ public class Cancelation extends Login {
 	 * @throws IOException IOException an exception is thrown if there is a problem with the input.
 	 */
 	public static String refund(String ssn) throws IOException {
-		File f1=new File("reservations"+ssn+".txt");
-		String[] words=null;
+		File f1 = new File("reservations"+ssn+".txt");
+		String[] words = null;
 		FileReader fr = new FileReader(f1);
 		BufferedReader br = new BufferedReader(fr);
 		String s;
-		while((s=br.readLine())!=null){
+		while((s = br.readLine()) != null){
 			words=s.split(" ");
 			for(int i = 0; i < words.length;i++) {
 				if(words[i].equals("$")) {
-					String refund = words[i+1];
-					System.out.println("We found your Reservation ticket we will now is your refund (check refund ticket with your ssn)");
-					String filename = "Refund"+ssn+".txt";
-					PrintWriter outputStream = null;
-					try {
-						outputStream = new PrintWriter(filename);
-						outputStream.println("**Refund***\n" + "Were sorry to see you go here is your refund of "+ refund);
-						outputStream.close();
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}
-					String clear = "reservations"+ssn+".txt";
-					PrintWriter outputStream2 = null;
-					try {
-						outputStream2 = new PrintWriter(clear);
-						outputStream2.println();
-						outputStream2.close();
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}	
-					return filename;
+					return startRefund(ssn, words, i);
 				}
 			}
 		}
 		
 		br.close();
 		return s;
+	}
+
+	private static String startRefund(String ssn, String[] words, int i) {
+		String refund = words[ i + 1];
+		System.out.println("We found your Reservation ticket we will now is your refund (check refund ticket with your ssn)");
+		String filename = "Refund"+ssn+".txt";
+		PrintWriter outputStream = null;
+		try {
+			outputStream = new PrintWriter(filename);
+			outputStream.println("**Refund***\n" + "Were sorry to see you go here is your refund of "+ refund);
+			outputStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		String clear = "reservations"+ssn+".txt";
+		PrintWriter outputStream2 = null;
+		try {
+			outputStream2 = new PrintWriter(clear);
+			outputStream2.println();
+			outputStream2.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}	
+		return filename;
 	}
 }

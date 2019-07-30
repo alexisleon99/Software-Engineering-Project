@@ -64,9 +64,11 @@ public class Flight extends Login {
 		
 		if(answer2.equals("1") || answer2.equals("yes") || answer2.equals("Yes")) {
 			System.out.println("How many companions will be accompanying you?");
+			
 			int num = input.nextInt();
 			cost = cost * num;
 			Reservation.CashCheck(cost, budget);
+			
 			for(int i = 1;i <= num; i++) {
 				System.out.println("current budget is " + budget);
 				String companion = "companion" + i;
