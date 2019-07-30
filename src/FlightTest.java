@@ -34,22 +34,29 @@ class FlightTest {
 		Reservation trex = new Reservation(flight,name,ssn,budget,loc);
 		
 		test.addCompanion(flight, budget, loc, "yes", 7000);
-		String expected = "reservation12341.txt";
-		String actual = searchFiles(ssn);
-		System.out.println(actual);
-		//assertEquals(expected,actual);
+		String expected = "reservations12341.txt";
+		//String actual = searchFiles(ssn);
+		String actual = searchFiles("reservations" + (ssn + "1") + ".txt");
+		assertEquals(expected,actual);
 		
 	}
-	public static String searchFiles(String fileName) throws IOException {
-		File f1 = new File(":c");
-		String[] words=null;
-		FileReader fr = new FileReader(f1);
-		BufferedReader br = new BufferedReader(fr);
-		String s;
-		while((s=br.readLine())!=null){
-		}
-		
-		br.close();
+	public static String searchFiles(String name) throws IOException {
+		String path = new File(".").getCanonicalPath();
+		 File dir = new File(path);
+	      String[] children = dir.list();
+	      String s = null;
+	      if (children == null) {
+	         System.out.println("doesn't exist or is not a directory");
+	      } else {
+	         for (int i = 0; i < children.length; i++) {
+	            s = children[i];
+	            if(s.equals(name)) {
+	            	return s;
+	            }
+	         }
+	      }
+	 
+
 		return s;
 	}
 }

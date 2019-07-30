@@ -1,4 +1,4 @@
 ***Reservation12341List***
 SSN			First Name	Destination	  Seat			Cost		Departure
 
-12341		companion1		Austin		C72		 $ 3500.0	 05-16-1994 05:00:00
+12341		companion1		Austin		W50		 $ 3500.0	 05-16-1994 05:00:00

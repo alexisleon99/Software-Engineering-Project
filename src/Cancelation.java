@@ -122,7 +122,7 @@ public class Cancelation extends Login {
 	 * @throws IOException IOException an exception is thrown if there is a problem with the input.
 	 */
 	public static String refund(String ssn) throws IOException {
-		File f1 = new File("reservations"+ssn+".txt");
+		File f1 = new File("reservations" + ssn + ".txt");
 		String[] words = null;
 		FileReader fr = new FileReader(f1);
 		BufferedReader br = new BufferedReader(fr);
