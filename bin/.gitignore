@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 /Cancelation.class
 /Companion.class
 /FlightTest.class
 /CompanionTest.class
+=======
+/FlightTest.class
+/CompanionTest.class
+/CancelationTest.class
+/AirlinesTest.class
+>>>>>>> 78ec1b9c0b817753445cd5577a4739be59636307

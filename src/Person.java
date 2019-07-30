@@ -16,9 +16,9 @@ import java.util.*;
 
 public class Person extends Login {
 
-	private Flight Flight;
 	String fname,lname,ssn;
-	//int birthDay;
+	private Cancelation cancel;
+	private List<Companion> companions;
 	double budget;  
 	private List<Flight> flights;
 	Scanner input = new Scanner(System.in);
@@ -58,16 +58,13 @@ public class Person extends Login {
 	 * @throws IOException Throw a IO exception if the input our output fails
 	 * @throws ParseException 
 	 */
-	public int menu () throws IOException, ParseException {
-		
+	public String menu () throws IOException, ParseException {	
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation" + "\n3 - Reschedule");
 		
-		int response = input.nextInt();
+		String response = input.next();
 		
-		
-		
-		if(response == 1){
+		if(response.equals("1") || response.equals("search") || response.equals("Search") ){
 			System.out.println("Search for airline");
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
@@ -84,13 +81,12 @@ public class Person extends Login {
 				Airlines.list(locations,capacity);
 			}
 			
-
-		}else if(response == 2){
+		}else if(response.equals("2") || response.equals("cancel") || response.equals("Cancel") ){
 			System.out.println("Going to Cancel Reservation");
 			cancelMenu(ssn);
 			
 			//Cancelation.cancel(ssn);
-		}else if(response == 3){
+		}else if(response.equals("3") || response.equals("Reschedule") || response.equals("reschedule")){
 			System.out.println("Going to Reschedule Reservation");
 			cancelMenu(ssn);
 		}else {
@@ -101,11 +97,19 @@ public class Person extends Login {
 		return response;
 	} 
 	
-
-	public void cancelMenu(String ssn) throws IOException, ParseException {
+	/**
+	 * This is a menu that is soley for canceling/rescheduling one's reservation.
+	 * 
+	 * @param ssn This is required for finding those files
+	 * @return Returns what action the user has decided to do.
+	 * @throws IOException an exception is thrown if there is a problem with the input.
+	 * @throws ParseException an exception is thrown if there is a problem down the line with the dates.
+	 */
+	
+	
+	public String cancelMenu(String ssn) throws IOException, ParseException {
 		System.out.println("Hello will you like to cancel or reschedule");
 		System.out.println("Type 'cancel' to cancel flight or Type 'reschedule'");
-		
 		String interaction = input.next();
 		
 		if(interaction.equals("cancel")){
@@ -114,8 +118,7 @@ public class Person extends Login {
 		}else if(interaction.equals("reschedule")) {
 			Cancelation.reschedule(ssn);
 		}
-		
+		return interaction;
 	}
-	
 }
 
