@@ -34,23 +34,28 @@ public class Seat {
 	 * Destination.
 	 * @param visit This is the destination that was chosen.
 	 * @param answer 
+	 * @param ssn 
 	 * @return 
 	 * @throws IOException 
 	 * @throws ParseException 
 	 */
 	
-	public String SeatClass(String visit, String answer) throws IOException, ParseException{
+	public String SeatClass(String visit, String answer, String ssn) throws IOException, ParseException{
 		System.out.println("Please choose what type of seat you will Like");
-		System.out.println("First" + "\t" + "Business" +"\t" + "Economy");
+		System.out.println("1 - First" + "\t" + "2 - Business" +"\t" + "3 - Economy");
 		String type = seat.next();
-		if(type.equals("First")) {
+		if(type.equals("First") || type.equals("first") || type.equals("1")) {
 			cost = cost * 2;
-			SeatChart(cost,visit,answer);
-		}else if(type.equals("Business")) {
+			SeatChart(cost,visit,answer,ssn);
+		}else if(type.equals("Business") || type.equals("business") || type.equals("2")) {
 			cost = cost * 1.5;
-			SeatChart(cost,visit,answer);
-		}else if(type.equals("Economy")) {
-			SeatChart(cost,visit,answer);			
+			SeatChart(cost,visit,answer,ssn);
+		}else if(type.equals("Economy") || type.equals("economy") || type.equals("3")) {
+			SeatChart(cost,visit,answer,ssn);			
+		}
+		else {
+			System.out.println("Sorry that is not a seat type please enter a valid one");
+			SeatClass(visit, answer, ssn);
 		}
 		return type;
 	}
@@ -63,14 +68,15 @@ public class Seat {
 	 * FinalizePurchase method
 	 * </p>
 	 * @param answer 
+	 * @param ssn 
 	 * @throws IOException 
 	 * @throws ParseException 
 	 */
-	public static void SeatChart(double cost,String visit, String answer) throws IOException, ParseException {
+	public static void SeatChart(double cost,String visit, String answer, String ssn) throws IOException, ParseException {
 		Random r = new Random();
 		int letter = r.nextInt(90 - 65) + 65;
 		char row = (char)letter;
 		int number = r.nextInt(100);
-		Reservation.FinalizePurchase(cost, row, number,visit,answer);
+		Reservation.FinalizePurchase(cost, row, number,visit,answer,ssn);
 	}
 }

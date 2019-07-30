@@ -20,4 +20,8 @@ class FlightTest {
 		
 		assertEquals(expected,actual);
 	}
+	
+	void testSearch() {
+		
+	}
 }

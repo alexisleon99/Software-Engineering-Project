@@ -47,11 +47,12 @@ public class Reservation {
 	 * It also passes the cost and the location of their visit to the seat class
 	 * where it determines the total cost for the trip.
 	 *</p>
+	 * @param ssn 
 	 * @return 
 	 * @throws IOException throws the exception when the input is failed to be interpreted
 	 * @throws java.text.ParseException 
 	 */
-	public static void purchase(String answer) throws IOException, java.text.ParseException {
+	public static double purchase(String answer, String ssn) throws IOException, java.text.ParseException {
 		//why is this double?
 		System.out.println("hello sir/mam");
 		System.out.println("airline:" + airline);
@@ -61,14 +62,18 @@ public class Reservation {
 		if(answer.equals(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
+			return cost;
 		}
 		if(map.containsKey(visit)) {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
-			type.SeatClass(visit,answer);
-		}
+			type.SeatClass(visit,answer,ssn);
+			return cost;
+		} 
 		else {
 		}
+		//return cost;//double in order for testing
+		return budget;
 		
 	}
 	
@@ -105,10 +110,12 @@ public class Reservation {
 	 * @param number Along with row this helps the user find their seat.
 	 * @param visit This is the location of their visit.
 	 * @param answer This is what passes to the addCompanion method it the users desired location
+	 * @param ssn 
+	 * @return 
 	 * @throws IOException 
 	 * @throws java.text.ParseException 
 	 */
-	public static void FinalizePurchase(double cost, char row, int number, String visit, String answer) throws IOException, java.text.ParseException{
+	public static String FinalizePurchase(double cost, char row, int number, String visit, String answer, String ssn) throws IOException, java.text.ParseException{
 		CashCheck(cost,budget);
 		budget = budget - cost;
 		String filename = "reservations"+ssn+".txt";
@@ -123,17 +130,12 @@ public class Reservation {
 		SimpleDateFormat dateformat2 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         System.out.println("Enter in departure in this format dd-M-yyyy hh:mm:ss");
         String departure = input.nextLine();
-  //      try {
-            Date newdate = dateformat2.parse(departure);
-    //    } catch (ParseException e) {
-        //    e.printStackTrace();
-      //  }
+        Date newdate = dateformat2.parse(departure);
+
 		outputStream.println("***Reservation"+ ssn +"List***");
-		//outputStream.printf("%-10s%-12s%-16s%4s%10s%20s","SSN", "First Name", " Destination", "Seat", "Cost", "Departure");
 		outputStream.println("SSN\t\t\t" + "First Name\t" + "Destination\t" + "  Seat\t" + "\t\tCost\t\t" + "Departure");
 		outputStream.println();
 		outputStream.println(ssn + "\t\t" + fname + "\t\t" +visit + "\t\t" + row + number + "\t" + "\t $ " + cost + "\t " + departure );
-		//outputStream.printf("%-10s%-13s%-15s%1c%-5d$%-8.2f%20s",ssn,fname,visit,row,number,cost,departure);
 
 		if(fname.contains("companion")) {
 		}else {
@@ -141,5 +143,6 @@ public class Reservation {
 		}
 		outputStream.close();
 		System.out.println("Goodbye Have a Safe Trip");
+		return filename;
 	}
 }

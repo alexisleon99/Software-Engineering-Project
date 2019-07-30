@@ -1,1 +1,4 @@
+***Reservation123456789List***
+SSN			First Name	Destination	  Seat			Cost		Departure
 
+123456789		 		Austin		a2		 $ 0.0	 01-21-2021 11:00:00

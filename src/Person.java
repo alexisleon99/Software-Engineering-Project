@@ -60,16 +60,13 @@ public class Person extends Login {
 	 * @throws IOException Throw a IO exception if the input our output fails
 	 * @throws ParseException 
 	 */
-	public int menu () throws IOException, ParseException {
-		
+	public void menu () throws IOException, ParseException {	
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation" + "\n3 - Reschedule");
 		
-		int response = input.nextInt();
+		String response = input.next();
 		
-		
-		
-		if(response == 1){
+		if(response.equals("1") || response.equals("search") || response.equals("Search") ){
 			System.out.println("Search for airline");
 			System.out.println("Current Airlines are delta and jetblue");
 			String airline = input.next();
@@ -86,13 +83,12 @@ public class Person extends Login {
 				Airlines.list(locations,capacity);
 			}
 			
-
-		}else if(response == 2){
+		}else if(response.equals("2") || response.equals("cancel") || response.equals("Cancel") ){
 			System.out.println("Going to Cancel Reservation");
 			cancelMenu(ssn);
 			
 			//Cancelation.cancel(ssn);
-		}else if(response == 3){
+		}else if(response.equals("3") || response.equals("Reschedule") || response.equals("reschedule")){
 			System.out.println("Going to Reschedule Reservation");
 			cancelMenu(ssn);
 		}else {
@@ -100,10 +96,8 @@ public class Person extends Login {
 			System.exit(0);
 		}		
 		input.close();
-		return response;
 	} 
 	
-
 	public void cancelMenu(String ssn) throws IOException, ParseException {
 		System.out.println("Hello will you like to cancel or reschedule");
 		System.out.println("Type 'cancel' to cancel flight or Type 'reschedule'");
@@ -116,8 +110,6 @@ public class Person extends Login {
 		}else if(interaction.equals("reschedule")) {
 			Cancelation.reschedule(ssn);
 		}
-		
 	}
-	
 }
 

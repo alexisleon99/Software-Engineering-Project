@@ -52,19 +52,19 @@ public class Flight extends Login {
 		System.out.println("reservation was a success enjoy your flight");	
 		System.out.println("Would you like to add companions?");
 		System.out.println("1 - yes" + "\n2 - no");
-		int answer2 = input.nextInt();
+		String answer2 = input.next();
 		
-		if(answer2 == 1) {
+		if(answer2.equals("1") || answer2.equals("yes") || answer2.equals("Yes")) {
 			System.out.println("How many companions will be accompanying you?");
 			int num = input.nextInt();
 			cost = cost * num;
 			Reservation.CashCheck(cost, budget);
 			for(int i = 1;i<=num; i++) {
-				System.out.println("current bduegt is "+ budget);
+				System.out.println("current budget is "+ budget);
 				String companion = "companion" + i;
 				String newSsn = ssn+i;
 				Reservation ticket2 = new Reservation(airline,companion,newSsn, budget,locations);
-				ticket2.purchase(answer);
+				ticket2.purchase(answer,newSsn);
 			}
 		}
 		else {
@@ -129,9 +129,9 @@ public class Flight extends Login {
 		
 		String answer = input.next();
 		
-		if(answer.equals("yes")) {
+		if(answer.equals("yes") || answer.equals("Yes") || answer.equals("1")) {
 			Reservation ticket = new Reservation(airline,fname,ssn, budget,locations); 
-			ticket.purchase(answer);
+			ticket.purchase(answer,ssn);
 			
 		}else {
 			System.out.println("Thank you for searching through " + airline + " flights");

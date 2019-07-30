@@ -47,9 +47,10 @@ public class Login {
 			String ssn = input.next();
 			
 			System.out.println("Are you here for a cancelation/reschedule");
+			System.out.println("Enter a yes or a 1 to confirm enter anything else to continue");
 			String response = input.next();
 			
-			if(response.equals("yes")) {
+			if(response.equals("yes") || response.equals("1") || response.equals("Yes")) {
 				int budget = 0;
 				Person user = new Person(fname, lname, ssn, budget);
 				user.cancelMenu(ssn);
