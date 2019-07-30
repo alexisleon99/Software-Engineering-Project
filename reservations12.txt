@@ -1,3 +1,0 @@
-***Reservation12List***
-SSN       First Name   Destination    Seat   Balance
-12        Jose         Austin         Q83    7000.00$

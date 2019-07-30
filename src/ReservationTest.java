@@ -11,19 +11,20 @@ import org.junit.jupiter.api.Test;
 
 class ReservationTest {
 
-	//@Test
-	/*void testpurchase() throws IOException, ParseException {
+	@Test
+	void testpurchase() throws IOException, ParseException {
 		HashMap <String,Double> map = new HashMap();
 		map.put("Austin", (double) 3500);
 		String visit = "Austin";
+		String ssn = "123456789";
 		
 		if(map.containsKey(visit)) {
 			Double ecost =  (Double) map.get(visit);	
-			Reservation actual = new Reservation("delta", null, null, 10000.0, map);
-			double acost = actual.purchase("Austin");
+			Reservation actual = new Reservation("delta", null, ssn, 10000.0, map);
+			double acost = actual.purchase("Austin",ssn);
 			assertEquals(ecost,acost);
 		}
-	}*/
+	}
 	
 	@Test
 	void testCashCheck() {

@@ -14,8 +14,14 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 public class Cancelation extends Login {
 	static Scanner input = new Scanner(System.in);
-	public static void cancel(String ssn) throws IOException {
+	private String ssn;
+	public Cancelation(String ssn) {
+		this.ssn = ssn;
+	}
+
+	public static String cancel(String ssn) throws IOException {
 		File f1=new File("reservations"+ssn+".txt");
+		String filename = f1.toString();
 		String[] words=null;
 		FileReader fr = new FileReader(f1);
 		BufferedReader br = new BufferedReader(fr);
@@ -39,10 +45,12 @@ public class Cancelation extends Login {
 			System.out.println("Sorry Sir/Mam you do not currently have a reservation with us");
 		}
 		br.close();
+		return filename;
 	}
 	
-	public static void reschedule(String ssn) throws java.text.ParseException, IOException {
+	public static String reschedule(String ssn) throws java.text.ParseException, IOException {
 		File fileToBeModified = new File("reservations"+ssn+".txt");
+		String filename = fileToBeModified.toString();
 	    String oldContent = "";
 	    BufferedReader reader = null;
 	    FileWriter writer = null;
@@ -72,10 +80,11 @@ public class Cancelation extends Login {
 	            {
 	                e.printStackTrace();
 	            }
-	        }	
+	        }
+		return filename;	
 	}
 	
-	public static void refund(String ssn) throws IOException {
+	public static String refund(String ssn) throws IOException {
 		File f1=new File("reservations"+ssn+".txt");
 		String[] words=null;
 		FileReader fr = new FileReader(f1);
@@ -105,9 +114,12 @@ public class Cancelation extends Login {
 					} catch (FileNotFoundException e) {
 						e.printStackTrace();
 					}	
+					return filename;
 				}
 			}
 		}
+		
 		br.close();
+		return s;
 	}
 }

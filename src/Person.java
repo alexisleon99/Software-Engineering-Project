@@ -16,9 +16,7 @@ import java.util.*;
 
 public class Person extends Login {
 
-	//private Flight Flight;
 	String fname,lname,ssn;
-	//int birthDay;
 	private Cancelation cancel;
 	private List<Companion> companions;
 	double budget;  
@@ -60,7 +58,7 @@ public class Person extends Login {
 	 * @throws IOException Throw a IO exception if the input our output fails
 	 * @throws ParseException 
 	 */
-	public void menu () throws IOException, ParseException {	
+	public String menu () throws IOException, ParseException {	
 		System.out.println("\nhello " + fname + " what would you like to do?");
 		System.out.println("1 - Search Flights" + "\n2 - Cancel Reservation" + "\n3 - Reschedule");
 		
@@ -96,12 +94,12 @@ public class Person extends Login {
 			System.exit(0);
 		}		
 		input.close();
+		return response;
 	} 
 	
-	public void cancelMenu(String ssn) throws IOException, ParseException {
+	public String cancelMenu(String ssn) throws IOException, ParseException {
 		System.out.println("Hello will you like to cancel or reschedule");
 		System.out.println("Type 'cancel' to cancel flight or Type 'reschedule'");
-		
 		String interaction = input.next();
 		
 		if(interaction.equals("cancel")){
@@ -110,6 +108,7 @@ public class Person extends Login {
 		}else if(interaction.equals("reschedule")) {
 			Cancelation.reschedule(ssn);
 		}
+		return interaction;
 	}
 }
 

@@ -1,3 +1,4 @@
 ***Reservation1234List***
-SSN       First Name   Destination    Seat      Cost           Departure
-1234      Jose         Austin         N69   $7000.00  04-05-2021 07:25:00
+SSN			First Name	Destination	  Seat			Cost		Departure
+
+1234		Jack		Austin		B32		 $ 3500.0	 11-11-2021 11:00:00

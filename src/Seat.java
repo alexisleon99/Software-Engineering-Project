@@ -40,24 +40,28 @@ public class Seat {
 	 * @throws ParseException 
 	 */
 	
-	public String SeatClass(String visit, String answer, String ssn) throws IOException, ParseException{
+	public static double SeatClass(String visit, String answer, String ssn) throws IOException, ParseException{
 		System.out.println("Please choose what type of seat you will Like");
 		System.out.println("1 - First" + "\t" + "2 - Business" +"\t" + "3 - Economy");
 		String type = seat.next();
+		
 		if(type.equals("First") || type.equals("first") || type.equals("1")) {
 			cost = cost * 2;
-			SeatChart(cost,visit,answer,ssn);
+			return cost;
+			//SeatChart(cost,visit,answer,ssn);
 		}else if(type.equals("Business") || type.equals("business") || type.equals("2")) {
 			cost = cost * 1.5;
-			SeatChart(cost,visit,answer,ssn);
+			return cost;
+			//SeatChart(cost,visit,answer,ssn);
 		}else if(type.equals("Economy") || type.equals("economy") || type.equals("3")) {
-			SeatChart(cost,visit,answer,ssn);			
+			//SeatChart(cost,visit,answer,ssn);			
+			return cost;
 		}
 		else {
 			System.out.println("Sorry that is not a seat type please enter a valid one");
 			SeatClass(visit, answer, ssn);
+			return cost;
 		}
-		return type;
 	}
 	/**
 	 * This method will be used in order to assign a randomized row and seat letter.
@@ -79,4 +83,5 @@ public class Seat {
 		int number = r.nextInt(100);
 		Reservation.FinalizePurchase(cost, row, number,visit,answer,ssn);
 	}
+
 }
