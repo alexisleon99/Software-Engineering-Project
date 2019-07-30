@@ -1,0 +1,4 @@
+***Reservation54541List***
+SSN			First Name	Destination	  Seat			Cost		Departure
+
+54541		companion1		Austin		N6		 $ 7000.0	 11-11-2021 11:00:00

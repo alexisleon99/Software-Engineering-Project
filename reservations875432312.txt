@@ -1,0 +1,5 @@
+***Reservation875432312List***
+SSN			First Name	Destination	  Seat			Cost		Departure
+
+875432312		jacl		Austin		P12		 $ 7000.0	 11-1-2021 11:00:00
+0:00

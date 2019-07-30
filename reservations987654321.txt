@@ -1,0 +1,4 @@
+***Reservation987654321List***
+SSN			First Name	Destination	Seat	Cost	Departure
+
+987654321		Joe		Austin		D14	$	7000.0	01-1-2021 11:00:00

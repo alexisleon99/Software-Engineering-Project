@@ -1,0 +1,4 @@
+***Reservation2List***
+SSN		First Name	Destination	Seat	Cost	Departure
+
+2		Jose		Austin	H80	$	7000.0	01-1-2021 11:00:00

@@ -1,3 +1,0 @@
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-091       companion1   Austin         B64       0.00

@@ -1,0 +1,4 @@
+***Reservation1List***
+SSN		First Name	Destination	Seat	Cost	Departure
+
+1	Jose	Austin	U94	$	7000.0	09-6-2021 11:00:00

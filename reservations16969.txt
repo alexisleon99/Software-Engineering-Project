@@ -1,3 +1,0 @@
-***Reservation List***
-SSN       First Name   Destination    Seat   Balance
-16969     wanky        Austin         R45    7000.00
