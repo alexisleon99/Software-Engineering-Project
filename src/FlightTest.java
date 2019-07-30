@@ -16,6 +16,7 @@ class FlightTest {
 		expected.put("Miami", (double) 3200);
 		expected.put("New York", (double) 3000);
 		expected.put("Arizona", (double) 5000);			
+<<<<<<< HEAD
 		HashMap actual = Flight.lists("delta");
 		
 		assertEquals(expected,actual);
@@ -26,3 +27,13 @@ class FlightTest {
 	}
 }
 
+=======
+		HashMap actual = flight.search("delta");
+		
+		ReservationTest rt = new ReservationTest();
+		rt.testpurchase();
+		
+		assertEquals(expected,actual);
+	}
+}
+>>>>>>> ee249392864489a4c70bdff60715d3af9c57701d
