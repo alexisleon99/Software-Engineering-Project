@@ -11,7 +11,13 @@ import java.util.Date;
 import java.util.Scanner;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
+/**
+ * This Class allows the cancelation or refund for a person/companions ticket/reservation.
+ * 
+ * @author Jose Delgado
+ * @author Alexis Leon
+ * @author Ajay Patel
+ */
 public class Cancelation extends Login {
 	static Scanner input = new Scanner(System.in);
 	private String ssn;
@@ -19,6 +25,15 @@ public class Cancelation extends Login {
 		this.ssn = ssn;
 	}
 
+	/**
+	 * In this specfic method we find a reservation ticket and clear it out.
+	 * <p>
+	 * Once the the reservation ticket has been cleared, another method is called, the refund method.
+	 * </p>
+	 * @param ssn This is what helps find the users reservations.
+	 * @return returns the file name in order to do some testing.
+	 * @throws IOException an exception is thrown if there is a problem with the input.
+	 */
 	public static String cancel(String ssn) throws IOException {
 		File f1=new File("reservations"+ssn+".txt");
 		String filename = f1.toString();
@@ -48,6 +63,16 @@ public class Cancelation extends Login {
 		return filename;
 	}
 	
+	/**
+	 * In this method we are able to change the users departure date.
+	 * <p>
+	 * Once the contents have been changed it regenerates the file with the new date.
+	 * </p>
+	 * @param ssn The ssn is what allows us to find the file and change its contents.
+	 * @return returns the file name for testing purposes.
+	 * @throws java.text.ParseException Throws an expception if there is a problem with the Date.
+	 * @throws IOException an exception is thrown if there is a problem with the input.
+	 */
 	public static String reschedule(String ssn) throws java.text.ParseException, IOException {
 		File fileToBeModified = new File("reservations"+ssn+".txt");
 		String filename = fileToBeModified.toString();
@@ -84,6 +109,19 @@ public class Cancelation extends Login {
 		return filename;	
 	}
 	
+	
+	/**
+	 * This method is called after the user has decided to cancel their reservation, not when they choose to reschedule.
+	 * 
+	 * <p>
+	 * It finds the file that is going to be "Canceled" and finds the amount that the ticket cost and creates
+	 * a new text file called Refund followed by the users ssn. This will notify the Refund was a success.
+	 * </p>
+	 * @param ssn We use this in order to find the text file, in order to find the amount that it had costed
+	 * and use it to create a refund text file.
+	 * @return Returns the new text file name in order to test. 
+	 * @throws IOException IOException an exception is thrown if there is a problem with the input.
+	 */
 	public static String refund(String ssn) throws IOException {
 		File f1=new File("reservations"+ssn+".txt");
 		String[] words=null;

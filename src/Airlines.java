@@ -1,6 +1,18 @@
+/**
+ * This class allows the airlines to list their flights as well as the capacity of those flights.
+ * @author Jose Delgado
+ * @author Alexis Leon
+ * @author Ajay Patel
+ */
 import java.util.HashMap;
-
 public class Airlines extends Login{
+	
+	/**
+	 * This method for the airlines class simply shows a list of flight destinations along with their capacity.
+	 * @param flights This is the different flights that the airline has.
+	 * @param capacity This is how much room is in that flight.
+	 * @return returns a hashMap for testing purposes
+	 */
 	
 	public static HashMap list(HashMap<String, Double> flights, int[] capacity) {
 		int counter = 0;

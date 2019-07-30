@@ -97,6 +97,16 @@ public class Person extends Login {
 		return response;
 	} 
 	
+	/**
+	 * This is a menu that is soley for canceling/rescheduling one's reservation.
+	 * 
+	 * @param ssn This is required for finding those files
+	 * @return Returns what action the user has decided to do.
+	 * @throws IOException an exception is thrown if there is a problem with the input.
+	 * @throws ParseException an exception is thrown if there is a problem down the line with the dates.
+	 */
+	
+	
 	public String cancelMenu(String ssn) throws IOException, ParseException {
 		System.out.println("Hello will you like to cancel or reschedule");
 		System.out.println("Type 'cancel' to cancel flight or Type 'reschedule'");

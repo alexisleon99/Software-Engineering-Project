@@ -112,8 +112,8 @@ public class Reservation {
 	 * @param number Along with row this helps the user find their seat.
 	 * @param visit This is the location of their visit.
 	 * @param answer This is what passes to the addCompanion method it the users desired location
-	 * @param ssn 
-	 * @return 
+	 * @param ssn The ssn that the user has.
+	 * @return  returns a string for testing purposes.
 	 * @throws IOException 
 	 * @throws java.text.ParseException 
 	 */
