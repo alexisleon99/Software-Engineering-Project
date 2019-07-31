@@ -74,11 +74,12 @@ public class Person extends Login {
 				order.lists(airline);
 				Airlines.list(locations,capacity);
 				order.search();
-			}else if(fname.equals("jetblue")) {
+			}else if(airline.equals("jetblue")) {
 				int [] capacity =  {450,370,175,350,445,350};
 				Flight order = new Flight(airline,fname,ssn,budget);
 				order.lists(airline);
 				Airlines.list(locations,capacity);
+				order.search();
 			}
 			
 		}else if(response.equals("2") || response.equals("cancel") || response.equals("Cancel") ){
