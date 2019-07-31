@@ -1,0 +1,4 @@
+***Reservation999List***
+SSN			First Name	Destination	  Seat			Cost		Departure
+
+999		k		Canada		G32		 $ 4500.0	 05-16-1994 05:00:00
