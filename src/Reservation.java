@@ -68,7 +68,7 @@ public class Reservation {
 			Double cost =  (Double) map.get(visit);
 			Seat type = new Seat(cost,visit);
 			//type.setSeat(visit,answer,ssn);
-			type.SeatClass(visit,answer,ssn);
+			cost = type.SeatClass(visit,answer,ssn);
 			type.SeatChart(cost,visit,answer,ssn);
 			return cost;
 		} 
